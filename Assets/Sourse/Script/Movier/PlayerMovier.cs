@@ -25,6 +25,7 @@ public class PlayerMovier : MonoBehaviour
 
     private void OnMove(Vector3 moveDirection)
     {
-        _controller.SimpleMove(moveDirection * _speed);
+        var move = new Vector3(moveDirection.x, 0 , moveDirection.y) * (-1);
+        _controller.SimpleMove(move * _speed);
     }
 }

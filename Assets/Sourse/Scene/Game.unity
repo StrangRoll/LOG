@@ -52408,7 +52408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputRoot: {fileID: 2031363805}
-  _speed: 3
+  _speed: 4
 --- !u!1 &2033553182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1886358935065936, guid: e158d3f5328e1fe4196ecc5d8eebcee8, type: 3}
