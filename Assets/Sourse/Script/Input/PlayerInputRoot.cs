@@ -31,6 +31,6 @@ public class PlayerInputRoot : MonoBehaviour
 
     private void OnMove()
     {
-        _moveDirection = _playerInput.Player.Move.ReadValue<Vector2>();
+        _moveDirection = _playerInput.Player.Move.ReadValue<Vector2>() * (-1);
     }
 }
