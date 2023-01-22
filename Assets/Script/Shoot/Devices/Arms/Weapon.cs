@@ -7,6 +7,7 @@ namespace Script.Shoot.Devices.Arms
     public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected Bullet bullet;
+        [SerializeField] protected Transform bulletSpawnPosition;
         [SerializeField] private float reloadTime;
 
         private bool _isReadyToShoot = true;
@@ -21,6 +22,7 @@ namespace Script.Shoot.Devices.Arms
         {
             if (_isReadyToShoot == false) return;
         
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             SpawnBullets();
             _isReadyToShoot = false;
             StartCoroutine(Reloading());
@@ -32,6 +34,7 @@ namespace Script.Shoot.Devices.Arms
         {
             yield return _waitReloading;
             _isReadyToShoot = true;
+
         }
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+using NTC.Global.Pool;
 
 namespace Script.Shoot.Devices.Arms
 {
@@ -6,6 +6,9 @@ namespace Script.Shoot.Devices.Arms
     {
         protected override void SpawnBullets()
         {
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
+            var newBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
+                bullet.transform.rotation * bulletSpawnPosition.rotation);
             
         }
     }

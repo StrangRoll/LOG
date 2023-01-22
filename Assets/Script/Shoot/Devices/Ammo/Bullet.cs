@@ -1,3 +1,5 @@
+using System;
+using NTC.Global.Pool;
 using Script.Mover;
 using UnityEngine;
 
@@ -11,6 +13,11 @@ namespace Script.Shoot.Devices.Ammo
         private void Update()
         {
             Move();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            NightPool.Despawn(this);
         }
 
         public abstract void Move();
