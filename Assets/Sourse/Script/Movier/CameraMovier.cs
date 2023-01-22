@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class CameraMovier : MonoBehaviour
 {
-    [SerializeField] private Vector3 _offset;
+    [SerializeField] private Vector3 offset;
 
-    [Inject] private PlayerMovier _playerMovier;
+    [Inject] private PlayerMover _playerMover;
 
     private void Awake()
     {
@@ -19,6 +20,6 @@ public class CameraMovier : MonoBehaviour
 
     private void MoveCamera()
     {
-        transform.position = _playerMovier.transform.position + _offset;
+        transform.position = _playerMover.transform.position + offset;
     }
 }

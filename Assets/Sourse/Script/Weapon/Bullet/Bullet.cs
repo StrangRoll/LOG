@@ -2,8 +2,8 @@ using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour, IMovable
 {
-    [SerializeField] protected float _damage;
-    [SerializeField] protected float _speed;
+    [SerializeField] protected float damage;
+    [SerializeField] protected float speed;
 
     private void Update()
     {

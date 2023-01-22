@@ -1,31 +1,31 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected Bullet _bullet;
-    [SerializeField] private float _reloadTime;
+    [SerializeField] protected Bullet bullet;
+    [SerializeField] private float reloadTime;
 
     private bool _isReadyToShoot = true;
     private WaitForSeconds _waitReloading;
 
     private void Awake()
     {
-        _waitReloading = new WaitForSeconds(_reloadTime);
+        _waitReloading = new WaitForSeconds(reloadTime);
     }
 
     public void Shoot()
     {
-        if (_isReadyToShoot)
-        {
-            SpawnBullets();
-            StartCoroutine(Reloadinng());
-        }
+        if (_isReadyToShoot == false) return;
+        
+        SpawnBullets();
+        StartCoroutine(Reloading());
     }
 
-    public abstract void SpawnBullets();
+    protected abstract void SpawnBullets();
 
-    private IEnumerator Reloadinng()
+    private IEnumerator Reloading()
     {
         yield return _waitReloading;
         _isReadyToShoot = true;
