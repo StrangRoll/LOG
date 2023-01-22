@@ -12650,6 +12650,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 936960290}
+  - {fileID: 547845210}
   m_Father: {fileID: 661144040}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12668,6 +12669,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 936960291}
+  - {fileID: 547845211}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -13286,6 +13288,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e158d3f5328e1fe4196ecc5d8eebcee8, type: 3}
+--- !u!1 &547845209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 547845210}
+  - component: {fileID: 547845211}
+  m_Layer: 0
+  m_Name: PlayerInputRootInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &547845210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547845209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 522218999}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &547845211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547845209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006ec0d4e66fdf6449fd180e26a0ad40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputRoot: {fileID: 2031363805}
 --- !u!4 &550178068 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: c664bfed623a0c248be60050549a3fc6, type: 3}
@@ -18605,7 +18652,7 @@ Transform:
   m_GameObject: {fileID: 789340459}
   m_LocalRotation: {x: -0, y: 0.9063079, z: -0.42261827, w: 0}
   m_LocalPosition: {x: 0.830404, y: 10.76, z: 41.38}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000005, y: 1.0000001, z: 1.0000006}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -18623,7 +18670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d230d974f4845d34586d3664e0cf7690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 7.5, z: 6}
+  offset: {x: 0, y: 7.5, z: 6}
 --- !u!1 &790519995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1368157686562892, guid: d84761ee8e7af9a4babafc0657772d0f, type: 3}
@@ -39766,8 +39813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd963650fd52854cbd25e650cbe940b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 7414819273534104753, guid: 0f0fa8439d305894bbe76f6965a291d4, type: 3}
-  _reloadTime: 1
+  bullet: {fileID: 7414819273534104753, guid: 0f0fa8439d305894bbe76f6965a291d4, type: 3}
+  reloadTime: 0.1
 --- !u!1001 &1550072655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52533,6 +52580,7 @@ GameObject:
   - component: {fileID: 2031363805}
   - component: {fileID: 2031363806}
   - component: {fileID: 2031363807}
+  - component: {fileID: 2031363808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -52664,8 +52712,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bd03285429356a409aec11043bcfb47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputRoot: {fileID: 0}
-  speed: 0
+  speed: 4
+--- !u!114 &2031363808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031363800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2041ca48ebbe4e878de772e3bee587f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allWeapons:
+  - {fileID: 1549458962}
 --- !u!1 &2033553182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1886358935065936, guid: e158d3f5328e1fe4196ecc5d8eebcee8, type: 3}

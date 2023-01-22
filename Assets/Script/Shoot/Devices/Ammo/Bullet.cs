@@ -1,4 +1,4 @@
-using Script.Interfaces;
+using Script.Mover;
 using UnityEngine;
 
 namespace Script.Shoot.Devices.Ammo

@@ -22,6 +22,7 @@ namespace Script.Shoot.Devices.Arms
             if (_isReadyToShoot == false) return;
         
             SpawnBullets();
+            _isReadyToShoot = false;
             StartCoroutine(Reloading());
         }
 

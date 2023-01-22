@@ -1,4 +1,4 @@
-namespace Script.Interfaces
+namespace Script.Mover
 {
     public interface IMovable 
     {

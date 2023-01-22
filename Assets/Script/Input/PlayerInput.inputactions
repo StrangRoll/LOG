@@ -15,10 +15,10 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Test",
-                    "type": "Button",
-                    "id": "1af931c9-7111-442c-8056-5328f3cadbd4",
-                    "expectedControlType": "Button",
+                    "name": "Shoot",
+                    "type": "PassThrough",
+                    "id": "5c4f6b7e-9c91-41b6-8c38-4c1ece215233",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -148,12 +148,23 @@
                 },
                 {
                     "name": "",
-                    "id": "392c4274-537d-4325-93fa-1102f94124a4",
-                    "path": "<Keyboard>/w",
+                    "id": "37f9e872-81c1-4a45-affa-039fdb8284fd",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Test",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cc1b979-072a-4604-9e43-6973e152c7b5",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

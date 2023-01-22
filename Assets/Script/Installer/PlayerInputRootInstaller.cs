@@ -1,19 +1,19 @@
-using Script.Mover;
+using Script.Input;
 using UnityEngine;
 using Zenject;
 
 namespace Script.Installer
 {
-    public class PlayerMoverInstaller : MonoInstaller
+    public class PlayerInputRootInstaller : MonoInstaller
     {
-        [SerializeField] private PlayerMover playerMover;
-
+        [SerializeField] private PlayerInputRoot inputRoot;
+        
         // ReSharper disable Unity.PerformanceAnalysis
         public override void InstallBindings()
         {
             Container
-                .Bind<PlayerMover>()
-                .FromInstance(playerMover)
+                .Bind<PlayerInputRoot>()
+                .FromInstance(inputRoot)
                 .AsSingle();
         }
     }
