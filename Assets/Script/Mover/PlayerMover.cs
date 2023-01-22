@@ -34,7 +34,7 @@ namespace Script.Mover
             _controller.SimpleMove(_move * speed);
         }
 
-        private void OnMove(Vector3 moveDirection)
+        private void OnMove(Vector2 moveDirection)
         {
             _move = new Vector3(moveDirection.x, 0 , moveDirection.y);
             Move();

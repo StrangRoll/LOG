@@ -7,10 +7,10 @@ namespace Script.Input
     public class PlayerInputRoot : MonoBehaviour
     {
         private PlayerInput _playerInput;
-        private Vector3 _moveDirection = Vector3.zero;
+        private Vector2 _moveDirection = Vector2.zero;
         private bool _isShooting = false;
 
-        public event UnityAction<Vector3> Move;
+        public event UnityAction<Vector2> Move;
         public event UnityAction Shoot;
 
         private void Awake()
@@ -25,7 +25,7 @@ namespace Script.Input
             _playerInput.Enable();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             Move?.Invoke(_moveDirection);
                         
