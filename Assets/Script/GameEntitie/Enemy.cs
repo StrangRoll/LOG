@@ -8,7 +8,7 @@ namespace Script.GameEntitie
     {
         public void TakeDamage(int damage)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
