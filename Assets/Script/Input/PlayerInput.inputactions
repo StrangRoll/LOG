@@ -10,7 +10,7 @@
                     "type": "PassThrough",
                     "id": "c5fec959-8301-4264-9096-1838e28554c3",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "InvertVector2",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -28,7 +28,16 @@
                     "type": "Value",
                     "id": "5ea05546-6ff7-4206-9f0b-d67cf8568e83",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "InvertVector2",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "MouseLook",
+                    "type": "Value",
+                    "id": "4df053f9-b4b0-42d3-8250-39915433d809",
+                    "expectedControlType": "Vector2",
+                    "processors": "InvertVector2(invertX=false,invertY=false)",
                     "interactions": "",
                     "initialStateCheck": true
                 }
@@ -179,12 +188,23 @@
                 },
                 {
                     "name": "",
-                    "id": "032d2283-6f07-4545-aa9e-08d112c786b9",
-                    "path": "<VirtualMouse>/position",
+                    "id": "806776fb-01d3-4c01-aa23-3932de36dee0",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7af8896f-ef50-4c34-9e77-eaf6d6c39ded",
+                    "path": "<Mouse>/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Look",
+                    "action": "MouseLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
