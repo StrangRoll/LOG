@@ -32,7 +32,14 @@ namespace Script.GameEntitie
 
         public void Attack()
         {
-            _currentWeapon.Shoot();
+            try
+            {
+                _currentWeapon.Shoot();
+            }
+            catch 
+            {
+                Debug.LogError("Try to Invoke method 'Shoot' in current weapon, but it doesn't exist");
+            }
         }
 
         private void OnShoot()
