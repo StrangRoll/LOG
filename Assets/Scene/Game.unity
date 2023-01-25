@@ -48265,13 +48265,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7321466380105567070, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -5032727690850221846, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5032727690850221846, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
       propertyPath: attackDistance
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3253176812727959735, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
       propertyPath: reloadTime
@@ -48336,6 +48340,18 @@ PrefabInstance:
     - target: {fileID: 9013851125788021136, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013851125788021136, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013851125788021136, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 9013851125788021136, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}

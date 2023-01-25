@@ -27,6 +27,7 @@ namespace Script.GameEntitie.EnemyTypes
         private void FixedUpdate()
         {
             Attack(Targets);
+            transform.LookAt(_playerTransform);
         }
 
         public void Attack(DamagableType[] targets)
