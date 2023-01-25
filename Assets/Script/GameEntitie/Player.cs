@@ -1,3 +1,4 @@
+using Script.Health;
 using Script.Input;
 using Script.Shoot;
 using Script.Shoot.Devices.Arms;
@@ -7,7 +8,7 @@ using Zenject;
 // ReSharper disable once IdentifierTypo
 namespace Script.GameEntitie
 {
-    public class Player: MonoBehaviour, IAttacker
+    public class Player: MonoBehaviour, IAttacker, IDamagable
     {
         [SerializeField] private Weapon[] allWeapons;
         
@@ -15,6 +16,9 @@ namespace Script.GameEntitie
 
         private Weapon _currentWeapon;
 
+        public DamagableType Type { get; } = DamagableType.Player;
+        public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Enemy, DamagableType.Obstacle, DamagableType.OutOfBound };
+        
         private void OnEnable()
         {
             _inputRoot.Shoot += OnShoot;
@@ -30,11 +34,16 @@ namespace Script.GameEntitie
             _inputRoot.Shoot -= OnShoot;
         }
 
-        public void Attack()
+        public void TakeDamage(int damage)
+        {
+            Debug.Log("Герой получил урон!");
+        }
+
+        public void Attack(DamagableType[] targets)
         {
             try
             {
-                _currentWeapon.Shoot();
+                _currentWeapon.TryShoot(targets);
             }
             catch 
             {
@@ -44,7 +53,7 @@ namespace Script.GameEntitie
 
         private void OnShoot()
         {
-            Attack();
+            Attack(Targets);
         }
     }
 }

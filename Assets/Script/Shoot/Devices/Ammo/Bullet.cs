@@ -1,3 +1,4 @@
+using System;
 using NTC.Global.Pool;
 using Script.Health;
 using Script.Mover;
@@ -10,6 +11,8 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] protected int damage;
         [SerializeField] protected float speed;
 
+        private DamagableType[] _targets;
+        
         private void Update()
         {
             Move();
@@ -17,10 +20,24 @@ namespace Script.Shoot.Devices.Ammo
 
         private void OnTriggerEnter(Collider other)
         {
-            NightPool.Despawn(this);
-
             if (other.TryGetComponent(out IDamagable component))
-                component.TakeDamage(damage);
+            {
+                if (Array.IndexOf(_targets, component.Type) != -1)
+                {
+                    NightPool.Despawn(this);
+                    component.TakeDamage(damage);
+                }
+            }
+        }
+
+        public void Init(DamagableType[] targets)
+        {
+            _targets = new DamagableType[targets.Length];
+
+            for (int i = 0; i < targets.Length; i++)
+            {
+                _targets[i] = targets[i];
+            }
         }
 
         public abstract void Move();
