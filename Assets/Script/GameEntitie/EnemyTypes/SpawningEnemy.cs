@@ -8,10 +8,9 @@ namespace Script.GameEntitie.EnemyTypes
     public class SpawningEnemy: Enemy
     {
         [SerializeField] private float spawnDelay;
-        [SerializeField] private SpawningEnemy spawningEnemyPrefab;
-        
-        [Inject] private EnemySpawner _enemySpawner;
 
+        [Inject] private EnemySpawner _enemySpawner;
+        
         private WaitForSeconds _waitSpawnDelay;
  
         private void Start()
@@ -25,8 +24,7 @@ namespace Script.GameEntitie.EnemyTypes
             while (true)
             {
                 yield return _waitSpawnDelay;
-                _enemySpawner.SpawnEnemy(transform.position, spawningEnemyPrefab);
-                break;
+                _enemySpawner.SpawnEnemy(transform.position, true);
             }
         }
     }

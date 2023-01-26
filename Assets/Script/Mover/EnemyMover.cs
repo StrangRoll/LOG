@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -16,6 +15,8 @@ namespace Script.Mover
 
         private void Start()
         {
+            agent.enabled = false;
+            agent.enabled = true;
             _toPointMover = new ToPointMover(agent);
             _playerTransform = _playerMover.transform;
         }
@@ -24,7 +25,7 @@ namespace Script.Mover
         {
             Move();
         }
-        
+
         public void Move()
         {
             _toPointMover.MoveToPoint(_playerTransform.position);
