@@ -1,4 +1,3 @@
-using System;
 using Script.Health;
 using Script.Mover;
 using Script.Shoot;

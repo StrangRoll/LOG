@@ -213,5 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd72209fd82e47269ea0e0db47e278ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMover: {fileID: 4346274833297697717}
   weapon: {fileID: 4346274832499954074}
   attackDistance: 8

@@ -11,8 +11,14 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] protected int damage;
         [SerializeField] protected float speed;
 
-        private DamagableType[] _targets;
-        
+        private DamagableType[] _targets = null;
+
+        private void Start()
+        {
+            if (_targets == null)
+                Debug.LogError("Bullet targets not set.");
+        }
+
         private void Update()
         {
             Move();
