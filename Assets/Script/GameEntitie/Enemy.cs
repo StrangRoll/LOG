@@ -1,7 +1,6 @@
-using System;
 using Script.Health;
-using Script.Mover;
 using UnityEngine;
+using UnityEngine.Events;
 
 // ReSharper disable once IdentifierTypo
 namespace Script.GameEntitie
@@ -10,6 +9,8 @@ namespace Script.GameEntitie
     {
         private const int Damage = 1;
 
+        public event UnityAction<Enemy> EnemyDie;
+        
         public DamagableType Type { get; } = DamagableType.Enemy;
 
         private void OnCollisionEnter(Collision collision)
@@ -20,6 +21,7 @@ namespace Script.GameEntitie
 
         public void TakeDamage(int damage)
         {
+            EnemyDie?.Invoke(this);
             Destroy(gameObject);
         }
     }
