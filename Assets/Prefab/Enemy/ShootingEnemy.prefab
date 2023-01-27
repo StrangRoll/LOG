@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6460998606402971629, guid: 212dbc52d0f88f84aaab7dde1a1609aa, type: 3}
   bulletSpawnPosition: {fileID: 4346274832499954075}
-  reloadTime: 0.1
+  reloadTime: 1
 --- !u!1 &4346274833297697719
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,7 +69,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4346274833297697711
 Transform:
   m_ObjectHideFlags: 0
@@ -213,6 +213,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd72209fd82e47269ea0e0db47e278ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMover: {fileID: 4346274833297697717}
   weapon: {fileID: 4346274832499954074}
   attackDistance: 8

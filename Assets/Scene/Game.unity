@@ -46542,7 +46542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7414819273534104753, guid: 0f0fa8439d305894bbe76f6965a291d4, type: 3}
   bulletSpawnPosition: {fileID: 1307067457}
-  reloadTime: 0.5
+  reloadTime: 0.4
 --- !u!1001 &1550072655
 PrefabInstance:
   m_ObjectHideFlags: 0
