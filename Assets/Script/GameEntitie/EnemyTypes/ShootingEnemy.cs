@@ -21,7 +21,6 @@ namespace Script.GameEntitie.EnemyTypes
         private void Start()
         {
             _playerTransform = _playerMover.transform;
-            Debug.Log(weapon);
         }
 
         private void FixedUpdate()

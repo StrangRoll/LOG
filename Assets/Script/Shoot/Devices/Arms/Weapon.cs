@@ -18,6 +18,7 @@ namespace Script.Shoot.Devices.Arms
         private void Awake()
         {
             _waitReloading = new WaitForSeconds(reloadTime);
+            DoWithParentAwake();
         }
 
         public void TryShoot(DamagableType[] targets)
@@ -29,6 +30,8 @@ namespace Script.Shoot.Devices.Arms
             _isReadyToShoot = false;
             StartCoroutine(Reloading());
         }
+        
+        protected virtual void DoWithParentAwake(){}
 
         protected abstract void SpawnBullets(DamagableType[] targets);
 
