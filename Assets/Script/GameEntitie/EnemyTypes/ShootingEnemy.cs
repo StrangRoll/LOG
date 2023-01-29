@@ -16,7 +16,7 @@ namespace Script.GameEntitie.EnemyTypes
 
         private Transform _playerTransform;
         
-        public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Player, DamagableType.Obstacle, DamagableType.OutOfBound };
+        public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Player};
 
         private void Start()
         {

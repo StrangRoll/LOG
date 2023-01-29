@@ -30,7 +30,7 @@ namespace Script.Shoot.Devices.Arms
                 var newBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
                     bullet.transform.rotation * bulletSpawnPosition.rotation);
 
-                newBullet.Init(targets);
+                newBullet.Init(targets, bulletDespawnObjects);
                 yield return _waitNextShot;
             }
         }

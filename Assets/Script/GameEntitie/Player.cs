@@ -17,7 +17,7 @@ namespace Script.GameEntitie
         private Weapon _currentWeapon;
 
         public DamagableType Type { get; } = DamagableType.Player;
-        public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Enemy, DamagableType.Obstacle, DamagableType.OutOfBound };
+        public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Enemy};
         
         private void OnEnable()
         {

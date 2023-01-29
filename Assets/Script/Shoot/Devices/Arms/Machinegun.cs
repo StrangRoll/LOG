@@ -14,7 +14,7 @@ namespace Script.Shoot.Devices.Arms
                 bullet.transform.rotation * bulletSpawnPosition.rotation);
             var rotation = Random.Range(-deltaAngle, deltaAngle);
             newBullet.transform.Rotate(Vector3.up, rotation);
-            newBullet.Init(targets);
+            newBullet.Init(targets, bulletDespawnObjects);
         }
     }
 }

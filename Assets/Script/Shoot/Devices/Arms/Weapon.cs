@@ -8,9 +8,10 @@ namespace Script.Shoot.Devices.Arms
 {
     public abstract class Weapon : MonoBehaviour
     {
-        [FormerlySerializedAs("playerBullet")] [SerializeField] protected Bullet bullet;
+        [SerializeField] protected Bullet bullet;
         [SerializeField] protected Transform bulletSpawnPosition;
         [SerializeField] private float reloadTime;
+        [SerializeField] protected DamagableType[] bulletDespawnObjects;
 
         private bool _isReadyToShoot = true;
         private WaitForSeconds _waitReloading;

@@ -22,7 +22,7 @@ namespace Script.Shoot.Devices.Arms
                 var newBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
                     bullet.transform.rotation * bulletSpawnPosition.rotation);
                 newBullet.transform.Rotate(Vector3.up, angle);
-                newBullet.Init(targets);
+                newBullet.Init(targets, base.bulletDespawnObjects);
             }
         }
     }

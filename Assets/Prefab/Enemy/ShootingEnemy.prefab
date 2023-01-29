@@ -47,6 +47,7 @@ MonoBehaviour:
   bullet: {fileID: 6460998606402971629, guid: 212dbc52d0f88f84aaab7dde1a1609aa, type: 3}
   bulletSpawnPosition: {fileID: 4346274832499954075}
   reloadTime: 1
+  bulletDespawnObjects: 020000000300000000000000
 --- !u!1 &4346274833297697719
 GameObject:
   m_ObjectHideFlags: 0
