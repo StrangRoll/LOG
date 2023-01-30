@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1748486380040161719}
   - component: {fileID: 8219978578607803157}
   - component: {fileID: -811039829694504199}
+  - component: {fileID: -547742525166028584}
   m_Layer: 0
   m_Name: LittleFastEnemy
   m_TagString: Untagged
@@ -165,4 +166,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7e899b78274e459d9c10531db57af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-547742525166028584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156062631903901170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f02623df64441f0819ee0d0f5d2a232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   enemyMover: {fileID: 1748486380040161719}
+  activationTime: 1.5
+  enemy: {fileID: -811039829694504199}

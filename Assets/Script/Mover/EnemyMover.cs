@@ -13,7 +13,7 @@ namespace Script.Mover
         private ToPointMover _toPointMover;
         private Transform _playerTransform;
 
-        private void Start()
+        private void OnEnable()
         {
             agent.enabled = false;
             agent.enabled = true;
