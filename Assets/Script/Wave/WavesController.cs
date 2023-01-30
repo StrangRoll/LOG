@@ -10,11 +10,11 @@ namespace Script.Wave
     {
         [SerializeField] private WaveChanger waveChanger;
         [SerializeField] private float timeBetweenWaves;
-        [SerializeField] private Transform spawnTransform;
         [SerializeField] private int enemiesCount;
         [SerializeField] private int deltaEnemiesCount;
         [SerializeField] private int increaseEnemiesCountStep;
 
+        [Inject] private Vector3[] _spawnPositions;
         [Inject] private EnemySpawner _enemySpawner;
 
         private WaitForSeconds _waitNextWave;
@@ -52,7 +52,12 @@ namespace Script.Wave
 
             var enemysCountToSpawn = Random.Range(enemiesCount - deltaEnemiesCount, enemiesCount + deltaEnemiesCount);
             enemiesCount += increaseEnemiesCountStep;
-            waveChanger.NextWave(enemysCountToSpawn, spawnTransform.position);
+            Vector3[] newEnemiesSpawnPositions = new Vector3[enemysCountToSpawn];
+            
+            for (var i = 0; i < enemysCountToSpawn; i++)
+                newEnemiesSpawnPositions[i] = _spawnPositions[Random.Range(0, _spawnPositions.Length)];
+            
+            waveChanger.NextWave(enemysCountToSpawn, newEnemiesSpawnPositions);
             _waveChangeCoroutine = StartCoroutine(WaveChangeCoroutine());
         }
 

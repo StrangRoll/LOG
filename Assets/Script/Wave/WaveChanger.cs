@@ -8,11 +8,11 @@ namespace Script.Wave
     {
         [Inject] private EnemySpawner _spawner;
 
-        public void NextWave(int enemyCount, Vector3 spawnPosition)
+        public void NextWave(int enemyCount, Vector3[] spawnPositions)
         {
             for (int i = 0; i < enemyCount; i++)
             {
-                _spawner.SpawnEnemy(spawnPosition);
+                _spawner.SpawnEnemy(spawnPositions[i]);
             }
         }
     }
