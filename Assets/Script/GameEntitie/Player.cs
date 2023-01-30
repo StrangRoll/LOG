@@ -28,7 +28,7 @@ namespace Script.GameEntitie
         {
             _currentWeapon = allWeapons[0];
         }
-
+    
         private void OnDisable()
         {
             _inputRoot.Shoot -= OnShoot;
