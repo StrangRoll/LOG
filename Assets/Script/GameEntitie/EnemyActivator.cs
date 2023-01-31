@@ -28,7 +28,7 @@ namespace Script.GameEntitie
 
         private void Activate()
         {
-            enemyMover.enabled = true;
+            enemyMover.enabled = true;  
             enemy.enabled = true;
         }
 
