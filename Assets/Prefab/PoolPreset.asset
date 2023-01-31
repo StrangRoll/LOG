@@ -13,8 +13,4 @@ MonoBehaviour:
   m_Name: PoolPreset
   m_EditorClassIdentifier: 
   poolName: 
-  poolItems:
-  - prefab: {fileID: 6264645798616952355, guid: 86a7b926671aa024eb430390e2d96874, type: 3}
-    size: 4
-  - prefab: {fileID: 2940952090666639760, guid: 0f0fa8439d305894bbe76f6965a291d4, type: 3}
-    size: 5
+  poolItems: []
