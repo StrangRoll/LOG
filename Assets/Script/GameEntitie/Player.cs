@@ -1,8 +1,10 @@
+using NTC.Global.Pool;
 using Script.Health;
 using Script.Input;
 using Script.Shoot;
 using Script.Shoot.Devices.Arms;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 // ReSharper disable once IdentifierTypo
@@ -15,6 +17,8 @@ namespace Script.GameEntitie
         [Inject] private PlayerInputRoot _inputRoot;
 
         private Weapon _currentWeapon;
+
+        public event UnityAction PlayerDead;
 
         public DamagableType Type { get; } = DamagableType.Player;
         public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Enemy};
@@ -36,8 +40,9 @@ namespace Script.GameEntitie
 
         public void TakeDamage(int damage)
         {
-            Debug.Log("Герой получил урон!");
-        }
+            gameObject.SetActive(false);
+            PlayerDead?.Invoke();
+        }   
 
         public void Attack(DamagableType[] targets)
         {
