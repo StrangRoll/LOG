@@ -10,9 +10,6 @@ namespace Script.GameEntitie.EnemyTypes
         {
             if (other.TryGetComponent(out IDamagable component) == false)
                 return;
-
-            if (component.Type != DamagableType.Player)
-                return;
             
             component.TakeDamage(1);
         }
