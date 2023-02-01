@@ -15,8 +15,16 @@ namespace Script.GameEntitie
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.TryGetComponent(out Player player))
-                player.TakeDamage(Damage);
+            if (!collision.gameObject.TryGetComponent(out IDamagable component))
+                return;
+            
+            Debug.Log("Enemy Hit");
+
+            if (component.Type != DamagableType.Player)
+                return;
+            
+            Debug.Log("Player Collision");
+            component.TakeDamage(Damage);
         }
 
         public void TakeDamage(int damage)

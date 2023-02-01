@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6460998606402971629, guid: 212dbc52d0f88f84aaab7dde1a1609aa, type: 3}
   bulletSpawnPosition: {fileID: 4346274832499954075}
-  reloadTime: 1
+  reloadTime: 1211
   bulletDespawnObjects: 020000000300000000000000
 --- !u!1 &4346274833297697719
 GameObject:
@@ -177,7 +177,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4346274833297697719}
   m_Enabled: 1
   m_AgentTypeID: -334000983
-  m_Radius: 0.53
+  m_Radius: 0.51
   m_Speed: 3.5
   m_Acceleration: 12
   avoidancePriority: 50
