@@ -15,15 +15,12 @@ namespace Script.GameEntitie
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (!collision.gameObject.TryGetComponent(out IDamagable component))
+            if (collision.gameObject.TryGetComponent(out IDamagable component) == false)
                 return;
             
-            Debug.Log("Enemy Hit");
-
             if (component.Type != DamagableType.Player)
                 return;
             
-            Debug.Log("Player Collision");
             component.TakeDamage(Damage);
         }
 
