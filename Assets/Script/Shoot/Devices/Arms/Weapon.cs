@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Script.Health;
 using Script.Shoot.Devices.Ammo;
@@ -15,11 +16,23 @@ namespace Script.Shoot.Devices.Arms
 
         private bool _isReadyToShoot = true;
         private WaitForSeconds _waitReloading;
+        private Coroutine _reloadingCoroutine;
+
+        private void OnEnable()
+        {
+            _isReadyToShoot = true;
+        }
 
         private void Awake()
         {
             _waitReloading = new WaitForSeconds(reloadTime);
             DoWithParentAwake();
+        }
+
+        private void OnDisable()
+        {
+            if (_reloadingCoroutine != null)
+                StopCoroutine(_reloadingCoroutine);
         }
 
         public void TryShoot(DamagableType[] targets)
@@ -29,7 +42,7 @@ namespace Script.Shoot.Devices.Arms
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             SpawnBullets(targets);
             _isReadyToShoot = false;
-            StartCoroutine(Reloading());
+            _reloadingCoroutine = StartCoroutine(Reloading());
         }
         
         protected virtual void DoWithParentAwake(){}

@@ -25,7 +25,7 @@ namespace Script.Wave
         public event UnityAction<float, float, float> WaveChanged;
 
 
-        private void Awake()
+        private void Start()
         {
             _waitNextWave = new WaitForSeconds(timeBetweenWaves);
             NewWave();

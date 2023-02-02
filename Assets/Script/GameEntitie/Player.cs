@@ -1,8 +1,8 @@
-using NTC.Global.Pool;
 using Script.Health;
 using Script.Input;
 using Script.Shoot;
 using Script.Shoot.Devices.Arms;
+using Script.Wave;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -15,8 +15,9 @@ namespace Script.GameEntitie
         [SerializeField] private Weapon[] allWeapons;
         
         [Inject] private PlayerInputRoot _inputRoot;
+        [Inject] private WavesController _wavesController;
 
-        private Weapon _currentWeapon;
+        private Weapon _currentWeapon = null;
 
         public event UnityAction PlayerDead;
 
@@ -26,23 +27,20 @@ namespace Script.GameEntitie
         private void OnEnable()
         {
             _inputRoot.Shoot += OnShoot;
+            _wavesController.WaveChanged += OnWaveChanged;
         }
 
-        private void Awake()
-        {
-            _currentWeapon = allWeapons[0];
-        }
-    
         private void OnDisable()
         {
             _inputRoot.Shoot -= OnShoot;
+            _wavesController.WaveChanged -= OnWaveChanged;
         }
 
         public void TakeDamage(int damage)
         {
             gameObject.SetActive(false);
             PlayerDead?.Invoke();
-        }   
+        }
 
         public void Attack(DamagableType[] targets)
         {
@@ -59,6 +57,26 @@ namespace Script.GameEntitie
         private void OnShoot()
         {
             Attack(Targets);
+        }
+
+        private void ChangeWeapon()
+        {
+            _currentWeapon?.gameObject.SetActive(false);
+
+            var newWeaponIndex = Random.Range(0, allWeapons.Length);
+
+            while (allWeapons[newWeaponIndex] == _currentWeapon)
+            {
+                newWeaponIndex = Random.Range(0, allWeapons.Length);
+            }
+
+            _currentWeapon = allWeapons[newWeaponIndex];
+            _currentWeapon.gameObject.SetActive(true);  
+        }
+
+        private void OnWaveChanged(float currentWave, float nextWave, float waveTime)
+        {
+            ChangeWeapon();
         }
     }
 }

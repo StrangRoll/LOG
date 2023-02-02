@@ -132,8 +132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7414819273534104753, guid: a105baae0c6fac6429f9a2b9db23a4e4, type: 3}
   bulletSpawnPosition: {fileID: 4995171011148708451}
-  reloadTime: 1.3
-  _bulletDespawnObjects: 0200000003000000
+  reloadTime: 1.4
+  bulletDespawnObjects: 0200000003000000
   minBulletCount: 8
   maxBulletCount: 12
   deltaAngle: 25
