@@ -1,5 +1,6 @@
 using Script.Health;
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot
 {
@@ -7,6 +8,11 @@ namespace Script.Shoot
     {
         public DamagableType Type { get; } = DamagableType.OutOfBound;
         public void TakeDamage(int damage)
+        {
+            return;
+        }
+
+        public void Kill()
         {
             return;
         }

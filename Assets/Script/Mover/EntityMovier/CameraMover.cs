@@ -1,7 +1,8 @@
+using Script.Mover.Player;
 using UnityEngine;
 using Zenject;
 
-namespace Script.Mover
+namespace Script.Mover.EntityMovier
 {
     public class CameraMover : MonoBehaviour
     {

@@ -12,7 +12,7 @@ namespace Script.GameEntitie.EnemyTypes
         [Inject] private EnemySpawner _enemySpawner;
         
         private WaitForSeconds _waitSpawnDelay;
- 
+
         private void Start()
         {
             _waitSpawnDelay = new WaitForSeconds(spawnDelay);

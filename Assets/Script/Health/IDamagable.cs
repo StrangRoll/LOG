@@ -7,5 +7,7 @@ namespace Script.Health
         public DamagableType Type { get; }
         
         public void TakeDamage(int damage);
+
+        public void Kill();
     }
 }

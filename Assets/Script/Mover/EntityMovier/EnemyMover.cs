@@ -1,8 +1,9 @@
+using Script.Mover.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
-namespace Script.Mover
+namespace Script.Mover.EntityMovier
 {
     public class EnemyMover : MonoBehaviour, IMovable
     {

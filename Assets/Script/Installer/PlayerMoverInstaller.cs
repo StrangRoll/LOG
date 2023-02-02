@@ -1,4 +1,5 @@
 using Script.Mover;
+using Script.Mover.Player;
 using UnityEngine;
 using Zenject;
 

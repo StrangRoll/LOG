@@ -1,11 +1,14 @@
+using System;
 using Script.Health;
 using Script.Input;
+using Script.Mover;
 using Script.Shoot;
 using Script.Shoot.Devices.Arms;
 using Script.Wave;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
+using Random = UnityEngine.Random;
 
 // ReSharper disable once IdentifierTypo
 namespace Script.GameEntitie
@@ -18,12 +21,19 @@ namespace Script.GameEntitie
         [Inject] private WavesController _wavesController;
 
         private Weapon _currentWeapon = null;
+        private ToStartPositionReturner _positionReturner;
 
         public event UnityAction PlayerDead;
 
         public DamagableType Type { get; } = DamagableType.Player;
         public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Enemy};
-        
+
+        private void Awake()
+        {
+            _positionReturner = new ToStartPositionReturner();
+            _positionReturner.Init(transform, transform.position);
+        }
+
         private void OnEnable()
         {
             _inputRoot.Shoot += OnShoot;
@@ -36,10 +46,22 @@ namespace Script.GameEntitie
             _wavesController.WaveChanged -= OnWaveChanged;
         }
 
+        public void Kill()
+        {
+            TakeDamage(1);
+        }
+
         public void TakeDamage(int damage)
         {
             gameObject.SetActive(false);
             PlayerDead?.Invoke();
+        }
+
+        public void Reset()
+        {
+            _positionReturner.ChangePosition();
+            gameObject.SetActive(true);
+            ChangeWeapon();
         }
 
         public void Attack(DamagableType[] targets)

@@ -1,5 +1,6 @@
 using System.Collections;
 using Script.Mover;
+using Script.Mover.EntityMovier;
 using UnityEngine;
 
 namespace Script.GameEntitie

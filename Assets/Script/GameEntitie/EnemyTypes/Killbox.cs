@@ -1,4 +1,3 @@
-using System;
 using Script.Health;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ namespace Script.GameEntitie.EnemyTypes
             if (other.TryGetComponent(out IDamagable component) == false)
                 return;
             
-            component.TakeDamage(1);
+            component.Kill();
         }
     }
 }

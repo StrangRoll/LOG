@@ -1,3 +1,4 @@
+using NTC.Global.Pool;
 using Script.Health;
 using UnityEngine;
 using UnityEngine.Events;
@@ -24,10 +25,15 @@ namespace Script.GameEntitie
             component.TakeDamage(Damage);
         }
 
+        public void Kill()
+        {
+            TakeDamage(1);
+        }
+
         public void TakeDamage(int damage)
         {
             EnemyDie?.Invoke(this);
-            Destroy(gameObject);
+            NightPool.Despawn(gameObject);
         }
     }
 }

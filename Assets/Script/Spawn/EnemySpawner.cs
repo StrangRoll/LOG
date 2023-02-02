@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using NTC.Global.Pool;
 using Script.GameEntitie;
 using Script.GameEntitie.EnemyTypes;
@@ -16,6 +17,7 @@ namespace Script.Spawn
         [SerializeField] private SpawningEnemy spawningEnemiePrefab;
 
         private int _aliveEnemies = 0;
+        private List<Enemy> _aliveEnemiesList = new List<Enemy>();
 
         public event UnityAction AllEnemiesDied;
         
@@ -26,12 +28,29 @@ namespace Script.Spawn
             _diContainer.InjectGameObject(newEnemy.gameObject);
             _aliveEnemies++;
             newEnemy.EnemyDie += OnEnemyDie;
+            _aliveEnemiesList.Add(newEnemy);
+        }
+
+        public void DespawnAllEnemies()
+        {
+            var enemyToDespawn = new Enemy[_aliveEnemies];
+            
+            for (int i = 0; i < _aliveEnemies; i++)
+            {
+                enemyToDespawn[i] = _aliveEnemiesList[i];
+            }
+            
+            foreach (var enemy in enemyToDespawn)
+            {
+                enemy.Kill();
+            }
         }
 
         private void OnEnemyDie(Enemy enemy)
         {
             _aliveEnemies--;
             enemy.EnemyDie -= OnEnemyDie;
+            _aliveEnemiesList.Remove(enemy);
             
             if (_aliveEnemies <= 0)
                 AllEnemiesDied?.Invoke();

@@ -2,7 +2,7 @@ using Script.Input;
 using UnityEngine;
 using Zenject;
 
-namespace Script.Mover
+namespace Script.Mover.Player
 {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMover : MonoBehaviour, IMovable
