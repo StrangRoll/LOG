@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UI.Script
+namespace UI.Script.UIActivator
 {
     public class GameOverUIActivator: MonoBehaviour
     {

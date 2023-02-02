@@ -1,6 +1,7 @@
 using System.Collections;
 using Script.Spawn;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -18,9 +19,11 @@ namespace Script.Wave
         [Inject] private EnemySpawner _enemySpawner;
 
         private WaitForSeconds _waitNextWave;
-        private Coroutine _waveChangeCoroutine = null; 
+        private Coroutine _waveChangeCoroutine = null;
+        private int _currentWave = 0;
 
-        public int CurrentWave { get; private set; } = 0;
+        public event UnityAction<float, float, float> WaveChanged;
+
 
         private void Awake()
         {
@@ -45,7 +48,7 @@ namespace Script.Wave
 
         private void NewWave()
         {
-            CurrentWave++;
+            _currentWave++;
             
             if (_waveChangeCoroutine is not null)
                 StopCoroutine(_waveChangeCoroutine);
@@ -59,6 +62,7 @@ namespace Script.Wave
             
             waveChanger.NextWave(enemysCountToSpawn, newEnemiesSpawnPositions);
             _waveChangeCoroutine = StartCoroutine(WaveChangeCoroutine());
+            WaveChanged?.Invoke(_currentWave, _currentWave + 1, timeBetweenWaves);
         }
 
         private IEnumerator WaveChangeCoroutine()
