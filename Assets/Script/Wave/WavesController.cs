@@ -56,7 +56,6 @@ namespace Script.Wave
             }
             else
             {
-                Debug.Log(_currentWave);
                 _currentWave -= 2;
                 enemiesCount -= increaseEnemiesCountStep * 2;
             }

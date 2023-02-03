@@ -38,7 +38,6 @@ namespace Script.Pause
             {
                 pausable.Pause(isPause);
             }
-
         }
 
         public void ChangePauseState()
