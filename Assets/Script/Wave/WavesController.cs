@@ -51,7 +51,15 @@ namespace Script.Wave
         private void OnGameRestarted(bool isGameContinue)
         {
             if (isGameContinue == false)
+            {
                 Reset();
+            }
+            else
+            {
+                Debug.Log(_currentWave);
+                _currentWave -= 2;
+                enemiesCount -= increaseEnemiesCountStep * 2;
+            }
             
             NewWave();
         }

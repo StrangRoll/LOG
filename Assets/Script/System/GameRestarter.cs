@@ -4,12 +4,14 @@ using UI.Script;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.System
 {
     public class GameRestarter : MonoBehaviour
     {
         [SerializeField] private ButtonClickReader restartButton;
+        [SerializeField] private ButtonClickReader continueButton;
 
         [Inject] private EnemySpawner _enemySpawner;
         [Inject] private Player _player;
@@ -21,11 +23,19 @@ namespace Script.System
         private void OnEnable()
         {
             restartButton.ButtonClicked += OnRestartButtonClick;
+            continueButton.ButtonClicked += OnContinueButtonClick;
         }
 
         private void OnDisable()
         {
             restartButton.ButtonClicked -= OnRestartButtonClick;
+            continueButton.ButtonClicked -= OnContinueButtonClick;
+        }
+
+        private void OnContinueButtonClick()
+        {
+            _IsGameContinue = true;
+            RestartGame();
         }
 
         private void OnRestartButtonClick()
