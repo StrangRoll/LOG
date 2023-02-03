@@ -8,7 +8,7 @@ namespace UI.Script.UIActivator
 {
     public class GameOverUIActivator: MonoBehaviour
     {
-        [SerializeField] private Image _gameOverImage;
+        [SerializeField] private Image gameOverImage;
 
         [Inject] private Player _player;
         [Inject] private GameRestarter _gameRestarter;
@@ -25,7 +25,7 @@ namespace UI.Script.UIActivator
             _gameRestarter.GameRestarted -= OnGameRestarted;
         }
 
-        private void OnGameRestarted()
+        private void OnGameRestarted(bool isGameContinue)
         {
             Deactivate();
         }
@@ -37,12 +37,12 @@ namespace UI.Script.UIActivator
 
         private void Activate()
         {
-            _gameOverImage.gameObject.SetActive(true);
+            gameOverImage.gameObject.SetActive(true);
         }
 
         private void Deactivate()
         {
-            _gameOverImage.gameObject.SetActive(false);
+            gameOverImage.gameObject.SetActive(false);
         }
     }
 }

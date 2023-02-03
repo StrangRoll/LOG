@@ -13,7 +13,6 @@ namespace UI.Script
         
         [Inject] private WavesController _wavesController;
 
-        private bool _isGame = false;
         private float _waveTime;
 
         private void OnEnable()
@@ -21,16 +20,13 @@ namespace UI.Script
             _wavesController.WaveChanged += OnWaveChanged;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _wavesController.WaveChanged -= OnWaveChanged;
         }
 
         private void FixedUpdate()
         {
-            if (_isGame == false)
-                return;
-
             sliderView.IncreaseValue(Time.deltaTime, _waveTime);
         }
 
@@ -40,7 +36,6 @@ namespace UI.Script
             _waveTime = waveTime;
             currentWaveTextField.text = currentWave.ToString();
             nextWaveTextField.text = nextWave.ToString();
-            _isGame = true;
         }
     }
 }

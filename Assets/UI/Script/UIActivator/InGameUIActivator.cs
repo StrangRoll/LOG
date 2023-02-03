@@ -24,7 +24,7 @@ namespace UI.Script.UIActivator
             _player.PlayerDead -= OnPlayerDead;
         }
 
-        private void OnGameRestarted()
+        private void OnGameRestarted(bool isGameContinue)
         {
             Activate();
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Script.Mover;
 using Script.Mover.EntityMovier;
@@ -10,12 +11,17 @@ namespace Script.GameEntitie
         [SerializeField] private EnemyMover enemyMover;
         [SerializeField] private float activationTime;
         [SerializeField] private Enemy enemy;
+        [SerializeField] private Collider enemyCollider;
 
         private WaitForSeconds _waitActivation;
 
-        private void Start()
+        private void Awake()
         {
             Deactivate();
+        }
+
+        private void Start()
+        {
             _waitActivation = new WaitForSeconds(activationTime);
             StartCoroutine(ActivateEnemy());
         }
@@ -24,6 +30,7 @@ namespace Script.GameEntitie
         {
             enemyMover.enabled = false;
             enemy.enabled = false;
+            enemyCollider.enabled = false;
         }
 
 
@@ -31,6 +38,7 @@ namespace Script.GameEntitie
         {
             enemyMover.enabled = true;  
             enemy.enabled = true;
+            enemyCollider.enabled = true;
         }
 
         private IEnumerator ActivateEnemy()

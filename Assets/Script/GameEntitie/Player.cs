@@ -55,6 +55,7 @@ namespace Script.GameEntitie
         {
             gameObject.SetActive(false);
             PlayerDead?.Invoke();
+            _inputRoot.Reset();
         }
 
         public void Reset()

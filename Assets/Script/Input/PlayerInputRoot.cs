@@ -43,6 +43,12 @@ namespace Script.Input
             _playerInput.Disable();
         }
 
+        public void Reset()
+        {
+            _isShooting = false;
+            _moveDirection = Vector2.zero;
+        }
+
         private void OnLook()
         {
             var lookDirection = _playerInput.Player.Look.ReadValue<Vector2>();

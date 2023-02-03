@@ -14,7 +14,9 @@ namespace Script.System
         [Inject] private EnemySpawner _enemySpawner;
         [Inject] private Player _player;
 
-        public event UnityAction GameRestarted;
+        public event UnityAction<bool> GameRestarted;
+
+        private bool _IsGameContinue;
 
         private void OnEnable()
         {
@@ -28,9 +30,15 @@ namespace Script.System
 
         private void OnRestartButtonClick()
         {
+            _IsGameContinue = false;
+            RestartGame();
+        }
+
+        private void RestartGame()
+        {
             DespawnAllEnemie();
             ResetPlayer();
-            GameRestarted?.Invoke();
+            GameRestarted?.Invoke(_IsGameContinue);
         }
 
         private void DespawnAllEnemie()

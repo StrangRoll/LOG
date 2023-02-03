@@ -1,8 +1,10 @@
 using System.Collections;
 using Script.Spawn;
+using Script.System;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
+using NotImplementedException = System.NotImplementedException;
 using Random = UnityEngine.Random;
 
 namespace Script.Wave
@@ -17,16 +19,19 @@ namespace Script.Wave
 
         [Inject] private Vector3[] _spawnPositions;
         [Inject] private EnemySpawner _enemySpawner;
+        [Inject] private GameRestarter _gameRestarter;
 
         private WaitForSeconds _waitNextWave;
         private Coroutine _waveChangeCoroutine = null;
         private int _currentWave = 0;
+        private int _startEnemiesCount;
 
         public event UnityAction<float, float, float> WaveChanged;
 
 
         private void Start()
         {
+            _startEnemiesCount = enemiesCount;
             _waitNextWave = new WaitForSeconds(timeBetweenWaves);
             NewWave();
         }
@@ -34,11 +39,27 @@ namespace Script.Wave
         private void OnEnable()
         {
             _enemySpawner.AllEnemiesDied += OnAllEnemiesDied;
+            _gameRestarter.GameRestarted += OnGameRestarted;
         }
-        
+
         private void OnDisable()
         {
             _enemySpawner.AllEnemiesDied -= OnAllEnemiesDied;
+            _gameRestarter.GameRestarted -= OnGameRestarted;
+        }
+
+        private void OnGameRestarted(bool isGameContinue)
+        {
+            if (isGameContinue == false)
+                Reset();
+            
+            NewWave();
+        }
+
+        private void Reset()
+        {
+            _currentWave = 0;
+            enemiesCount = _startEnemiesCount;
         }
 
         private void OnAllEnemiesDied()
