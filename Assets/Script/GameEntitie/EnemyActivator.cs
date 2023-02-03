@@ -15,13 +15,9 @@ namespace Script.GameEntitie
 
         private WaitForSeconds _waitActivation;
 
-        private void Awake()
+        private void OnEnable()
         {
             Deactivate();
-        }
-
-        private void Start()
-        {
             _waitActivation = new WaitForSeconds(activationTime);
             StartCoroutine(ActivateEnemy());
         }
