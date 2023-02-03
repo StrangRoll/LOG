@@ -1,5 +1,6 @@
 using Script.Input;
 using Script.Mover.Player;
+using Script.Pause;
 using UnityEngine;
 using Zenject;
 
@@ -9,6 +10,7 @@ namespace Script.Mover
     {
         [Inject] private PlayerInputRoot _inputRoot;
         [Inject] private PlayerMover _playerMover;
+        [Inject] private PauseManager _pauseManager;
 
         private Transform _playerTransform;
 
@@ -29,6 +31,9 @@ namespace Script.Mover
 
         private void OnLook(Vector2 direction)
         {
+            if (_pauseManager.IsPause)
+                return;
+            
             var lookDirection = new Vector3(direction.x, 0, direction.y);
             _playerTransform.LookAt(_playerTransform.position + (Vector3)lookDirection);
         }

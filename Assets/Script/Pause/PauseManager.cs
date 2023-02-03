@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Script.Pause
 {
-    public class PauseManager: IPausable
+    public class PauseManager: MonoBehaviour, IPausable
     {
         private List<IPausable> _pausablesList = new List<IPausable>();
         
-        public bool IsPause { get; private set; }
 
+        public bool IsPause { get; private set; }
         public void Pause(bool isPause)
         {
             IsPause = isPause;

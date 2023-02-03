@@ -8,8 +8,7 @@ namespace Script.Input
     public class PauseManagerInputRoot: MonoBehaviour
     {
         [Inject] private PlayerInput _playerInput;
-        
-        private PauseManager _pauseManager = new PauseManager();
+        [Inject] private PauseManager pauseManager;
 
         private void Awake()
         {
@@ -18,7 +17,7 @@ namespace Script.Input
 
         private void OnPause()
         {
-            _pauseManager.ChangePauseState();
+            pauseManager.ChangePauseState();
         }
     }
 }
