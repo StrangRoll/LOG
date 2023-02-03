@@ -4,7 +4,6 @@ using UI.Script;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
-using NotImplementedException = System.NotImplementedException;
 
 namespace Script.System
 {

@@ -7,8 +7,8 @@ namespace Script.Input
     public class PlayerInputRoot : MonoBehaviour
     {
         [Inject] private Camera _mainCamera;
+        [Inject] private PlayerInput _playerInput;
         
-        private PlayerInput _playerInput;
         private Vector2 _moveDirection = Vector2.zero;
         private bool _isShooting = false;
 
@@ -18,7 +18,6 @@ namespace Script.Input
 
         private void Awake()
         {
-            _playerInput = new PlayerInput();
             _playerInput.Player.Move.performed += ctx => OnMove();
             _playerInput.Player.Shoot.performed += ctx => OnShoot();
             _playerInput.Player.Look.performed += ctx => OnLook();
