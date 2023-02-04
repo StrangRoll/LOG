@@ -23,11 +23,11 @@ namespace Script.Wave
 
         private WaitForSeconds _waitNextWave;
         private Coroutine _waveChangeCoroutine = null;
-        private int _currentWave = 0;
         private int _startEnemiesCount;
 
         public event UnityAction<float, float, float> WaveChanged;
 
+        public int CurrentWave { get; private set; } = 0;
 
         private void Start()
         {
@@ -56,7 +56,7 @@ namespace Script.Wave
             }
             else
             {
-                _currentWave--;
+                CurrentWave--;
                 enemiesCount -= increaseEnemiesCountStep;
             }
             
@@ -65,7 +65,7 @@ namespace Script.Wave
 
         private void Reset()
         {
-            _currentWave = 0;
+            CurrentWave = 0;
             enemiesCount = _startEnemiesCount;
         }
 
@@ -76,7 +76,7 @@ namespace Script.Wave
 
         private void NewWave()
         {
-            _currentWave++;
+            CurrentWave++;
             
             if (_waveChangeCoroutine is not null)
                 StopCoroutine(_waveChangeCoroutine);
@@ -90,7 +90,7 @@ namespace Script.Wave
             
             waveChanger.NextWave(enemysCountToSpawn, newEnemiesSpawnPositions);
             _waveChangeCoroutine = StartCoroutine(WaveChangeCoroutine());
-            WaveChanged?.Invoke(_currentWave, _currentWave + 1, timeBetweenWaves);
+            WaveChanged?.Invoke(CurrentWave, CurrentWave + 1, timeBetweenWaves);
         }
 
         private IEnumerator WaveChangeCoroutine()
