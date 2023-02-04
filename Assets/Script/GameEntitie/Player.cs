@@ -34,6 +34,11 @@ namespace Script.GameEntitie
             _positionMover.Init(transform, transform.position);
         }
 
+        private void Start()
+        {
+            gameObject.SetActive(false);
+        }
+
         private void OnEnable()
         {
             _inputRoot.Shoot += OnShoot;

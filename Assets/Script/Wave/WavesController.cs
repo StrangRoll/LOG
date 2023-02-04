@@ -29,17 +29,17 @@ namespace Script.Wave
 
         public int CurrentWave { get; private set; } = 0;
 
-        private void Start()
-        {
-            _startEnemiesCount = enemiesCount;
-            _waitNextWave = new WaitForSeconds(timeBetweenWaves);
-            NewWave();
-        }
-
         private void OnEnable()
         {
             _enemySpawner.AllEnemiesDied += OnAllEnemiesDied;
             _gameRestarter.GameRestarted += OnGameRestarted;
+        }
+
+        private void Start()
+        {
+            _startEnemiesCount = enemiesCount;
+            _waitNextWave = new WaitForSeconds(timeBetweenWaves);
+            gameObject.SetActive(false);
         }
 
         private void OnDisable()

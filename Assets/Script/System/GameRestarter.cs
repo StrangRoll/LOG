@@ -16,6 +16,7 @@ namespace Script.System
 
         [Inject] private EnemySpawner _enemySpawner;
         [Inject] private Player _player;
+        [Inject] private IsGameControl _isGameControl;
 
         public event UnityAction<bool> GameRestarted;
 
@@ -26,6 +27,7 @@ namespace Script.System
             restartButton.ButtonClicked += OnRestartButtonClick;
             gameContinueButton.ButtonClicked += OnGameContinueButtonClick;
             restartFromPauseButton.ButtonClicked += OnRestartButtonClick;
+            _isGameControl.GameStarted += OnRestartButtonClick;
         }
 
         private void OnDisable()
@@ -33,6 +35,7 @@ namespace Script.System
             restartButton.ButtonClicked -= OnRestartButtonClick;
             gameContinueButton.ButtonClicked -= OnGameContinueButtonClick;
             restartFromPauseButton.ButtonClicked -= OnRestartButtonClick;
+            _isGameControl.GameStarted -= OnRestartButtonClick;
         }
 
         private void OnGameContinueButtonClick()
