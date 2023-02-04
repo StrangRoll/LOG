@@ -3,6 +3,7 @@ using Script.Spawn;
 using UI.Script;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Script.System
@@ -10,7 +11,8 @@ namespace Script.System
     public class GameRestarter : MonoBehaviour
     {
         [SerializeField] private ButtonClickReader restartButton;
-        [SerializeField] private ButtonClickReader continueButton;
+        [SerializeField] private ButtonClickReader gameContinueButton;
+        [SerializeField] private ButtonClickReader restartFromPauseButton;
 
         [Inject] private EnemySpawner _enemySpawner;
         [Inject] private Player _player;
@@ -22,16 +24,18 @@ namespace Script.System
         private void OnEnable()
         {
             restartButton.ButtonClicked += OnRestartButtonClick;
-            continueButton.ButtonClicked += OnContinueButtonClick;
+            gameContinueButton.ButtonClicked += OnGameContinueButtonClick;
+            restartFromPauseButton.ButtonClicked += OnRestartButtonClick;
         }
 
         private void OnDisable()
         {
             restartButton.ButtonClicked -= OnRestartButtonClick;
-            continueButton.ButtonClicked -= OnContinueButtonClick;
+            gameContinueButton.ButtonClicked -= OnGameContinueButtonClick;
+            restartFromPauseButton.ButtonClicked -= OnRestartButtonClick;
         }
 
-        private void OnContinueButtonClick()
+        private void OnGameContinueButtonClick()
         {
             _IsGameContinue = true;
             RestartGame();

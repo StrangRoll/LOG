@@ -21,7 +21,7 @@ namespace Script.GameEntitie
         [Inject] private WavesController _wavesController;
 
         private Weapon _currentWeapon = null;
-        private ToStartPositionReturner _positionReturner;
+        private ToSavedPositionMover _positionMover;
 
         public event UnityAction PlayerDead;
 
@@ -30,8 +30,8 @@ namespace Script.GameEntitie
 
         private void Awake()
         {
-            _positionReturner = new ToStartPositionReturner();
-            _positionReturner.Init(transform, transform.position);
+            _positionMover = new ToSavedPositionMover();
+            _positionMover.Init(transform, transform.position);
         }
 
         private void OnEnable()
@@ -60,7 +60,8 @@ namespace Script.GameEntitie
 
         public void Reset()
         {
-            _positionReturner.ChangePosition();
+            gameObject.SetActive(false);
+            _positionMover.ChangePosition();
             gameObject.SetActive(true);
             ChangeWeapon();
         }

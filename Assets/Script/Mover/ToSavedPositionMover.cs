@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Script.Mover
 {
-    public class ToStartPositionReturner
+    public class ToSavedPositionMover
     {
         private Vector3 _startPosition;
         private Transform _transform;
