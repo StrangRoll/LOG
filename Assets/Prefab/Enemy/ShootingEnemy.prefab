@@ -233,3 +233,4 @@ MonoBehaviour:
   activationTime: 1.5
   enemy: {fileID: 4346274833297697716}
   enemyCollider: {fileID: 4346274833297697712}
+  renderer: {fileID: 4346274833297697713}
