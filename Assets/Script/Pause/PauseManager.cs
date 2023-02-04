@@ -45,22 +45,12 @@ namespace Script.Pause
             Pause(!IsPause);
         }
 
-        private void OnGameRestarted(bool arg0)
-        {
-            Pause(false);
-        }
-
-        private void OnPlayerDead()
-        {
-            Pause(true);
-        }
-
-        private void Register(IPausable pausable)
+        public void Register(IPausable pausable)
         {
             _pausablesList.Add(pausable);
         }
 
-        private void Unregister(IPausable pausable)
+        public void UnRegister(IPausable pausable)
         {
             try
             {
@@ -70,6 +60,16 @@ namespace Script.Pause
             {
                 Debug.LogError("Unable to remove pausable from list");
             }
+        }
+
+        private void OnGameRestarted(bool arg0)
+        {
+            Pause(false);
+        }
+
+        private void OnPlayerDead()
+        {
+            Pause(true);
         }
     }
 }

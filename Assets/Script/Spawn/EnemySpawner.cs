@@ -18,6 +18,7 @@ namespace Script.Spawn
 
         private int _aliveEnemies = 0;
         private List<Enemy> _aliveEnemiesList = new List<Enemy>();
+        private bool _isKillingAll = false;
 
         public event UnityAction AllEnemiesDied;
         
@@ -39,6 +40,8 @@ namespace Script.Spawn
             {
                 enemyToDespawn[i] = _aliveEnemiesList[i];
             }
+
+            _isKillingAll = true;
             
             foreach (var enemy in enemyToDespawn)
             {
@@ -51,9 +54,18 @@ namespace Script.Spawn
             _aliveEnemies--;
             enemy.EnemyDie -= OnEnemyDie;
             _aliveEnemiesList.Remove(enemy);
+
+            if (_aliveEnemies > 0)
+                return;
             
-            if (_aliveEnemies <= 0)
+            if (_isKillingAll == false)
+            {
                 AllEnemiesDied?.Invoke();
+            }
+            else
+            {
+                _isKillingAll = false;
+            }
         }
     }
 }
