@@ -4,11 +4,14 @@ using Script.Health;
 using Script.Shoot.Devices.Ammo;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace Script.Shoot.Devices.Arms
 {
     public abstract class Weapon : MonoBehaviour
     {
+        [Inject] private BulletCollector _bulletCollector;
+        
         [SerializeField] protected Bullet bullet;
         [SerializeField] protected Transform bulletSpawnPosition;
         [SerializeField] private float reloadTime;
@@ -40,14 +43,14 @@ namespace Script.Shoot.Devices.Arms
             if (_isReadyToShoot == false) return;
         
             // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
-            SpawnBullets(targets);
+            SpawnBullets(targets, _bulletCollector);
             _isReadyToShoot = false;
             _reloadingCoroutine = StartCoroutine(Reloading());
         }
         
         protected virtual void DoWithParentAwake(){}
 
-        protected abstract void SpawnBullets(DamagableType[] targets);
+        protected abstract void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector);
 
         private IEnumerator Reloading()
         {

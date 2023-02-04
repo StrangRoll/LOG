@@ -11,9 +11,10 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] protected int damage;
         [SerializeField] protected float speed;
 
-        private DamagableType[] _targets = null;
         protected DamagableType[] _despawnObjects = null;
 
+        private DamagableType[] _targets = null;
+        private BulletCollector _bulletCollector;
 
         private void Start()
         {
@@ -36,13 +37,18 @@ namespace Script.Shoot.Devices.Ammo
             
             if (Array.IndexOf(_targets, component.Type) != -1)
                 component.TakeDamage(damage);
-                
+
             if (Array.IndexOf(_despawnObjects, component.Type) != -1)
+            {
+                _bulletCollector.UnRegister(this);
                 NightPool.Despawn(this);
+            }
         }
 
-        public void Init(DamagableType[] targets, DamagableType[] despawnObjects)
+        public void Init(DamagableType[] targets, DamagableType[] despawnObjects, BulletCollector bulletCollector)
         {
+            _bulletCollector = bulletCollector;
+            bulletCollector.Register(this);
             _targets = new DamagableType[targets.Length];
             _despawnObjects = new DamagableType[despawnObjects.Length];
 

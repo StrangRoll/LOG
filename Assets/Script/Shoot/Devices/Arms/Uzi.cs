@@ -18,19 +18,19 @@ namespace Script.Shoot.Devices.Arms
             _waitNextShot = new WaitForSeconds(timeBetweenBullets);
         }
 
-        protected override void SpawnBullets(DamagableType[] targets)
+        protected override void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector)
         {
-            StartCoroutine(BurstOfShots(targets));
+            StartCoroutine(BurstOfShots(targets, bulletCollector));
         }
 
-        private IEnumerator BurstOfShots(DamagableType[] targets)
+        private IEnumerator BurstOfShots(DamagableType[] targets, BulletCollector bulletCollector)
         {
             for (int i = 0; i < bulletCount; i++)
             {
                 var newBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
                     bullet.transform.rotation * bulletSpawnPosition.rotation);
 
-                newBullet.Init(targets, bulletDespawnObjects);
+                newBullet.Init(targets, bulletDespawnObjects, bulletCollector);
                 yield return _waitNextShot;
             }
         }

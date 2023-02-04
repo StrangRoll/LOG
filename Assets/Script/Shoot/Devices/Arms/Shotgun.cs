@@ -12,7 +12,7 @@ namespace Script.Shoot.Devices.Arms
         [SerializeField] private int maxBulletCount;
         [SerializeField] private float deltaAngle;
         
-        protected override void SpawnBullets(DamagableType[] targets)
+        protected override void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector)
         {
             var bulletCount = Random.Range(minBulletCount, maxBulletCount);
 
@@ -22,7 +22,7 @@ namespace Script.Shoot.Devices.Arms
                 var newBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
                     bullet.transform.rotation * bulletSpawnPosition.rotation);
                 newBullet.transform.Rotate(Vector3.up, angle);
-                newBullet.Init(targets, base.bulletDespawnObjects);
+                newBullet.Init(targets, base.bulletDespawnObjects, bulletCollector);
             }
         }
     }
