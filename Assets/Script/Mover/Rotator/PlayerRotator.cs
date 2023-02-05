@@ -4,7 +4,7 @@ using Script.Pause;
 using UnityEngine;
 using Zenject;
 
-namespace Script.Mover
+namespace Script.Mover.Rotator
 {
     public class PlayerRotator: MonoBehaviour
     {
