@@ -15,7 +15,7 @@ namespace Script.Mover.EntityMovier
             MoveCamera();
         }
 
-        private void LateUpdate()
+        private void Update()
         {
             MoveCamera();
         }

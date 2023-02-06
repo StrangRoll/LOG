@@ -1,4 +1,3 @@
-using System;
 using Script.Health;
 using Script.Input;
 using Script.Mover;
@@ -22,6 +21,7 @@ namespace Script.GameEntitie
 
         private Weapon _currentWeapon = null;
         private ToSavedPositionMover _positionMover;
+        private bool _isReadyToWeaponChange;
 
         public event UnityAction PlayerDead;
 
@@ -31,7 +31,8 @@ namespace Script.GameEntitie
         private void Awake()
         {
             _positionMover = new ToSavedPositionMover();
-            _positionMover.Init(transform, transform.position);
+            var playerTransform = transform;
+            _positionMover.Init(playerTransform, playerTransform.position);
         }
 
         private void Start()
@@ -105,7 +106,10 @@ namespace Script.GameEntitie
 
         private void OnWaveChanged(float currentWave, float nextWave, float waveTime)
         {
-            ChangeWeapon();
+            if (_isReadyToWeaponChange)
+                ChangeWeapon();
+
+            _isReadyToWeaponChange = !_isReadyToWeaponChange;
         }
     }
 }

@@ -6577,7 +6577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveChanger: {fileID: 240192460}
-  timeBetweenWaves: 10
+  timeBetweenWaves: 15
   enemiesCount: 3
   deltaEnemiesCount: 1
   increaseEnemiesCountStep: 1
@@ -69319,6 +69319,7 @@ GameObject:
   - component: {fileID: 1711881275}
   - component: {fileID: 1711881277}
   - component: {fileID: 1711881276}
+  - component: {fileID: 1711881278}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -69336,7 +69337,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 961871084}
   - {fileID: 1653732542}
@@ -69387,6 +69388,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711881274}
   m_CullTransparentMesh: 1
+--- !u!114 &1711881278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711881274}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5d3319052a84ca39d08996f9ecf3f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuTransform: {fileID: 1711881275}
+  animationSpeed: 0.05
+  maxScale: 1.02
+  minScale: 1
+  scaleDirection: 1
 --- !u!4 &1711946454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4572184595132250, guid: cdf0efc2fc33b6f4588aeb36dfc0dfb8, type: 3}
