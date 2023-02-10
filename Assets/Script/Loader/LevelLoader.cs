@@ -1,5 +1,5 @@
-using System;
 using IJunior.TypedScenes;
+using Script.Loader.Info;
 using UI.Script;
 using UnityEngine;
 using Random = UnityEngine.Random;

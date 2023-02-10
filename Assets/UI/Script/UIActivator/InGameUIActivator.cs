@@ -8,7 +8,6 @@ namespace UI.Script.UIActivator
     public class InGameUIActivator: MonoBehaviour
     {
         [SerializeField] private RectTransform inGameUI;
-        [SerializeField] private ButtonClickReader exitButton;
         
         [Inject] private Player _player;
         [Inject] private GameRestarter _gameRestarter;
@@ -17,21 +16,14 @@ namespace UI.Script.UIActivator
         {
             _gameRestarter.GameRestarted += OnGameRestarted;
             _player.PlayerDead += OnPlayerDead;
-            exitButton.ButtonClicked += OnExitButtonClick;
         }
 
         private void OnDisable()
         {
             _gameRestarter.GameRestarted -= OnGameRestarted;
             _player.PlayerDead -= OnPlayerDead;
-            exitButton.ButtonClicked -= OnExitButtonClick;
         }
-
-        private void OnExitButtonClick()
-        {
-            Deactivate();
-        }
-
+        
         private void OnGameRestarted(bool isGameContinue)
         {
             Activate();

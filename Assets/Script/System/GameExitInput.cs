@@ -1,4 +1,3 @@
-using System;
 using UI.Script;
 using UnityEngine;
 using Zenject;
@@ -9,7 +8,6 @@ namespace Script.System
     {
         [SerializeField] private ButtonClickReader exitButtonInLose;
         [SerializeField] private ButtonClickReader exitButtonInPause;
-        [SerializeField] private CameraChanger cameraChanger;
         
         [Inject] private IsGameControl _isGameControl;
 
@@ -28,7 +26,6 @@ namespace Script.System
         private void OnExitButtonClicked()
         {
             _isGameControl.ExitGame();
-            cameraChanger.ActivateMainMenuCamera();
         }
     }
 }

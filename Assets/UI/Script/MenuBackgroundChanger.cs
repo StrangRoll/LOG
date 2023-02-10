@@ -7,7 +7,7 @@ namespace UI.Script
     {
         [SerializeField] private GameObject[] levels;
 
-        private void Awake()
+        public void Awake()
         {
             //choice random level from levels
             var levelIndex = Random.Range(0, levels.Length);

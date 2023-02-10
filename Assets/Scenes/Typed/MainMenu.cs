@@ -21,5 +21,10 @@ namespace IJunior.TypedScenes
         {
             LoadScene(GUID);
         }
+        
+        public static void Load(Script.Loader.Info.InfoToMainMenu argument)
+        {
+            LoadScene(GUID, argument);
+        }
     }
 }

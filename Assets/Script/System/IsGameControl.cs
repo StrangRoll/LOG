@@ -1,4 +1,5 @@
 using Script.GameEntitie;
+using Script.Loader;
 using Script.Wave;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +12,8 @@ namespace Script.System
         private readonly WavesController _wavesController;
         private readonly Player _player;
         private readonly RectTransform _mainMenu;
+
+        private MainMenuLoader _mainMenuLoader = new MainMenuLoader();
         
         public event UnityAction GameStarted; 
         
@@ -31,9 +34,7 @@ namespace Script.System
 
         public void ExitGame()
         {
-            _wavesController.gameObject.SetActive(false);
-            _player.gameObject.SetActive(false);
-            _mainMenu.gameObject.SetActive(true);
+            _mainMenuLoader.LoadToMainMenu();
         }
     }
 }

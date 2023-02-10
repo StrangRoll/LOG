@@ -22,7 +22,7 @@ namespace IJunior.TypedScenes
             LoadScene(GUID);
         }
         
-        public static void Load(Script.Loader.InfoToLevel argument)
+        public static void Load(Script.Loader.Info.InfoToLevel argument)
         {
             LoadScene(GUID, argument);
         }
