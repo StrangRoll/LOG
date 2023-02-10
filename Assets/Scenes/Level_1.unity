@@ -21140,6 +21140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesController: {fileID: 240192459}
   player: {fileID: 2031363808}
+  mainMenu: {fileID: 1711881275}
 --- !u!1 &603589117 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1784946921783176, guid: da069710315859f45b006a49bab26fe9, type: 3}

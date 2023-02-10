@@ -18973,6 +18973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesController: {fileID: 240192459}
   player: {fileID: 2031363808}
+  mainMenu: {fileID: 1711881275}
 --- !u!1001 &611919109
 PrefabInstance:
   m_ObjectHideFlags: 0

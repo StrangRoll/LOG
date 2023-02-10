@@ -1,5 +1,6 @@
 using Script.GameEntitie;
 using Script.Wave;
+using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
@@ -9,19 +10,22 @@ namespace Script.System
     {
         private readonly WavesController _wavesController;
         private readonly Player _player;
-
+        private readonly RectTransform _mainMenu;
+        
         public event UnityAction GameStarted; 
         
-        public IsGameControl(WavesController wavesController, Player player)
+        public IsGameControl(WavesController wavesController, Player player, RectTransform mainMenu)
         {
             _wavesController = wavesController;
             _player = player;
+            _mainMenu = mainMenu;
         }
 
         public void EnterGame()
         {
             _wavesController.gameObject.SetActive(true);
             _player.gameObject.SetActive(true);
+            _mainMenu.gameObject.SetActive(false);
             GameStarted?.Invoke();
         }
 
@@ -29,6 +33,7 @@ namespace Script.System
         {
             _wavesController.gameObject.SetActive(false);
             _player.gameObject.SetActive(false);
+            _mainMenu.gameObject.SetActive(true);
         }
     }
 }

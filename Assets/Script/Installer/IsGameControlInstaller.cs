@@ -10,10 +10,11 @@ namespace Script.Installer
     {
         [SerializeField] private WavesController wavesController;
         [SerializeField] private Player player;
+        [SerializeField] private RectTransform mainMenu;
 
         public override void InstallBindings()
         {
-            var isGameControl = new IsGameControl(wavesController, player);
+            var isGameControl = new IsGameControl(wavesController, player, mainMenu);
         
             Container
                 .Bind<IsGameControl>()

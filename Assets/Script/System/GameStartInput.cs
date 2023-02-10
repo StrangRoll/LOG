@@ -12,17 +12,7 @@ namespace Script.System
 
         [Inject] private IsGameControl _isGameControl;
 
-        private void OnEnable()
-        {
-            playButton.ButtonClicked += OnPlayButtonClicked;
-        }
-
-        private void OnDisable()
-        {
-            playButton.ButtonClicked -= OnPlayButtonClicked;
-        }
-
-        private void OnPlayButtonClicked()
+        private void Start()
         {
             _isGameControl.EnterGame();
             cameraChanger.ActivateGameCamera();
