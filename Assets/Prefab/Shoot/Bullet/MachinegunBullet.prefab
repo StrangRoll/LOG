@@ -92,5 +92,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 20
-  minSpeed: 2
-  maxSpeed: 13
+  minSpeed: 6
+  maxSpeed: 15

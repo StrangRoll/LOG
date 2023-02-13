@@ -15,7 +15,7 @@ namespace IJunior.TypedScenes
     public class FantasyAxeAndShield_Scene : TypedScene
     {
         
-        private const string GUID = "7ff26918cadf9254e8ebfb26fe58f0a3";
+        private const string GUID = "1690861171c5bda44bf8059d68e1b840";
         
         public static void Load()
         {
