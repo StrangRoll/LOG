@@ -1,3 +1,4 @@
+using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
@@ -18,6 +19,11 @@ namespace Script.Shoot.Devices.Ammo
         protected override void SetDamageType()
         {
             bulletDamager = new StandartDamager(damage);
+        }
+
+        protected override void SetCollisionType()
+        {
+            bulletCollisionType = new OnlyDespawn();
         }
     }
 }

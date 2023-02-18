@@ -1,6 +1,7 @@
 using System;
 using NTC.Global.Pool;
 using Script.Health;
+using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Script.Shoot.Devices.Ammo
     {
         protected IBulletMover bulletMover;
         protected IBulletDamager bulletDamager;
+        protected IBulletCollisionType bulletCollisionType;
         protected DamagableType[] _despawnObjects = null;
 
         private DamagableType[] _targets = null;
@@ -20,6 +22,7 @@ namespace Script.Shoot.Devices.Ammo
         {
             SetMovementType();
             SetDamageType();
+            SetCollisionType();
             
             if (_targets == null)
                 Debug.LogError("Bullet targets not set.");
@@ -31,9 +34,10 @@ namespace Script.Shoot.Devices.Ammo
                 Debug.LogError("Bullet mover not set.");
 
             if (bulletDamager == null)
-            {
                 Debug.LogError("Bulllet damager not set");
-            }
+
+            if (bulletCollisionType == null)
+                Debug.LogError("Bullet collision type not set");
         }
 
         private void Update()
@@ -50,15 +54,8 @@ namespace Script.Shoot.Devices.Ammo
                 bulletDamager.Damage(component);
 
             if (Array.IndexOf(_despawnObjects, component.Type) != -1)
-            {
-                _bulletCollector.UnRegister(this);
-                NightPool.Despawn(this);
-            }
+                bulletCollisionType.OnCollision(this, component, _bulletCollector);
         }
-
-        protected abstract void SetMovementType();
-
-        protected abstract void SetDamageType();
 
         public void Init(DamagableType[] targets, DamagableType[] despawnObjects, BulletCollector bulletCollector)
         {
@@ -77,5 +74,11 @@ namespace Script.Shoot.Devices.Ammo
                 _despawnObjects[i] = despawnObjects[i];
             }
         }
+
+        protected abstract void SetMovementType();
+
+        protected abstract void SetDamageType();
+
+        protected abstract void SetCollisionType();
     }
 }
