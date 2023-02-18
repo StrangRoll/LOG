@@ -4169,7 +4169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ecd4544801ade948a205b856c67f075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 997123523}
 --- !u!1001 &137906936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43743,7 +43743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wavesController: {fileID: 240192459}
-  player: {fileID: 0}
+  player: {fileID: 1749187504}
   mainMenu: {fileID: 1711881275}
 --- !u!1001 &603801120
 PrefabInstance:
@@ -67134,6 +67134,11 @@ PrefabInstance:
 --- !u!4 &997123522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1688809082429205531, guid: e5bf119cdcb2c824a8c44e31b59905bd, type: 3}
+  m_PrefabInstance: {fileID: 997123521}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &997123523 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1688809082429205528, guid: e5bf119cdcb2c824a8c44e31b59905bd, type: 3}
   m_PrefabInstance: {fileID: 997123521}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &997846928

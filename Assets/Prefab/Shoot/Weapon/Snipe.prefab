@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fd963650fd52854cbd25e650cbe940b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7414819273534104753, guid: a1621562abef31345af329e9e231ec60, type: 3}
+  bullet: {fileID: 4373797893045509278, guid: a1621562abef31345af329e9e231ec60, type: 3}
   bulletSpawnPosition: {fileID: 7264962646267235698}
-  reloadTime: 1.4
+  reloadTime: 1.2
   bulletDespawnObjects: 03000000
 --- !u!1 &7266446950895738644
 GameObject:

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 868751860a2946b5962dbf5a13ee3288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7414819273534104753, guid: a105baae0c6fac6429f9a2b9db23a4e4, type: 3}
+  bullet: {fileID: 5373781471266410533, guid: a105baae0c6fac6429f9a2b9db23a4e4, type: 3}
   bulletSpawnPosition: {fileID: 4995171011148708451}
   reloadTime: 1.4
   bulletDespawnObjects: 0200000003000000

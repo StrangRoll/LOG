@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a19c96bcb7b4d349c129991542f0042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7414819273534104753, guid: 0f0fa8439d305894bbe76f6965a291d4, type: 3}
+  bullet: {fileID: 3022353516713641436, guid: 21644e8fd6f235e46bca26e2c12f9877, type: 3}
   bulletSpawnPosition: {fileID: 4114813019392374285}
   reloadTime: 1.2
   bulletDespawnObjects: 0200000003000000

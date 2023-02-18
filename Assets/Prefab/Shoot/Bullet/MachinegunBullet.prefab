@@ -78,7 +78,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5105598888636845775, guid: f756db7dfa78a864b9f2e24dec67cb78, type: 3}
   m_PrefabInstance: {fileID: 7929404610537893727}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-8155256890824328367
+--- !u!114 &5680946386427166617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,10 +87,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2940952090666639760}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f139d47d389a42f8b8002372da6d97b3, type: 3}
+  m_Script: {fileID: 11500000, guid: de5319ba68454e8791d1c0b6e73d51b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 20
   minSpeed: 6
   maxSpeed: 15

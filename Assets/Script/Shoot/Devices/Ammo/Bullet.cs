@@ -1,16 +1,16 @@
 using System;
 using NTC.Global.Pool;
 using Script.Health;
-using Script.Mover;
+using Script.Shoot.Devices.Ammo.BulletDamageType;
+using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
 
 namespace Script.Shoot.Devices.Ammo
 {
-    public abstract class Bullet : MonoBehaviour, IMovable
+    public abstract class Bullet : MonoBehaviour
     {
-        [SerializeField] protected int damage;
-        [SerializeField] protected float speed;
-
+        protected IBulletMover bulletMover;
+        protected IBulletDamager bulletDamager;
         protected DamagableType[] _despawnObjects = null;
 
         private DamagableType[] _targets = null;
@@ -18,16 +18,27 @@ namespace Script.Shoot.Devices.Ammo
 
         private void Start()
         {
+            SetMovementType();
+            SetDamageType();
+            
             if (_targets == null)
                 Debug.LogError("Bullet targets not set.");
 
             if (_despawnObjects == null)
                 Debug.LogError("Bullet despawn objects not set.");
+            
+            if (bulletMover == null)
+                Debug.LogError("Bullet mover not set.");
+
+            if (bulletDamager == null)
+            {
+                Debug.LogError("Bulllet damager not set");
+            }
         }
 
         private void Update()
         {
-            Move();
+            bulletMover.Move();;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -36,7 +47,7 @@ namespace Script.Shoot.Devices.Ammo
                 return;
             
             if (Array.IndexOf(_targets, component.Type) != -1)
-                component.TakeDamage(damage);
+                bulletDamager.Damage(component);
 
             if (Array.IndexOf(_despawnObjects, component.Type) != -1)
             {
@@ -44,6 +55,10 @@ namespace Script.Shoot.Devices.Ammo
                 NightPool.Despawn(this);
             }
         }
+
+        protected abstract void SetMovementType();
+
+        protected abstract void SetDamageType();
 
         public void Init(DamagableType[] targets, DamagableType[] despawnObjects, BulletCollector bulletCollector)
         {
@@ -62,7 +77,5 @@ namespace Script.Shoot.Devices.Ammo
                 _despawnObjects[i] = despawnObjects[i];
             }
         }
-
-        public abstract void Move();
     }
 }

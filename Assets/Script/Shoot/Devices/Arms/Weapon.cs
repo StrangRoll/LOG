@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using Script.Health;
 using Script.Shoot.Devices.Ammo;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Script.Shoot.Devices.Arms

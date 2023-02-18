@@ -3,7 +3,6 @@ using Script.Loader;
 using Script.Wave;
 using UnityEngine;
 using UnityEngine.Events;
-using Zenject;
 
 namespace Script.System
 {
