@@ -28,6 +28,12 @@ namespace Script.Shoot.Devices.Arms
         {
             _waitReloading = new WaitForSeconds(reloadTime);
             DoWithParentAwake();
+            StartCoroutine(Explosion());
+        }
+        
+        private IEnumerator Explosion()
+        {
+            yield return null;
         }
 
         private void OnDisable()

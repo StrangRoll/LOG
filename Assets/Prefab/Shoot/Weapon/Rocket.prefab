@@ -303,6 +303,37 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.00000023341272, y: 0.0012739828, z: -0.0031579416}
     m_Extent: {x: 0.0005590803, y: 0.0012974889, z: 0.0046118023}
   m_DirtyAABB: 0
+--- !u!1 &7358880379909126169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3397326214724987460}
+  m_Layer: 0
+  m_Name: BulletSpawPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3397326214724987460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358880379909126169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.136, z: 0.454}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2902477511761568782}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7864236648436515932
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2902477511761568782}
+  - component: {fileID: 2690668309320010048}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -332,6 +364,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2934997203866352199}
+  - {fileID: 3397326214724987460}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2690668309320010048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7864236648436515932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd963650fd52854cbd25e650cbe940b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 299422554879511462, guid: 4eac370cbe07eec498d34e368b41111b, type: 3}
+  bulletSpawnPosition: {fileID: 3397326214724987460}
+  reloadTime: 1
+  bulletDespawnObjects: 010000000200000003000000

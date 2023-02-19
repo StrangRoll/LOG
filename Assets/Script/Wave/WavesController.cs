@@ -12,15 +12,15 @@ namespace Script.Wave
     public class WavesController: MonoBehaviour
     {
         [SerializeField] private WaveChanger waveChanger;
-        [SerializeField] private float timeBetweenWaves;
-        [SerializeField] private int enemiesCount;
-        [SerializeField] private int deltaEnemiesCount;
-        [SerializeField] private int increaseEnemiesCountStep;
 
         [Inject] private Vector3[] _spawnPositions;
         [Inject] private EnemySpawner _enemySpawner;
         [Inject] private GameRestarter _gameRestarter;
 
+        private readonly float _timeBetweenWaves = 15;
+        private readonly int _deltaEnemiesCount = 1;
+        private readonly int _increaseEnemiesCountStep = 1;
+        private int _enemiesCount = 3;
         private WaitForSeconds _waitNextWave;
         private Coroutine _waveChangeCoroutine = null;
         private int _startEnemiesCount;
@@ -37,8 +37,8 @@ namespace Script.Wave
 
         private void Start()
         {
-            _startEnemiesCount = enemiesCount;
-            _waitNextWave = new WaitForSeconds(timeBetweenWaves);
+            _startEnemiesCount = _enemiesCount;
+            _waitNextWave = new WaitForSeconds(_timeBetweenWaves);
             gameObject.SetActive(false);
         }
 
@@ -57,7 +57,7 @@ namespace Script.Wave
             else
             {
                 CurrentWave--;
-                enemiesCount -= increaseEnemiesCountStep;
+                _enemiesCount -= _increaseEnemiesCountStep;
             }
             
             NewWave();
@@ -66,7 +66,7 @@ namespace Script.Wave
         private void Reset()
         {
             CurrentWave = 0;
-            enemiesCount = _startEnemiesCount;
+            _enemiesCount = _startEnemiesCount;
         }
 
         private void OnAllEnemiesDied()
@@ -81,8 +81,8 @@ namespace Script.Wave
             if (_waveChangeCoroutine is not null)
                 StopCoroutine(_waveChangeCoroutine);
 
-            var enemysCountToSpawn = Random.Range(enemiesCount - deltaEnemiesCount, enemiesCount + deltaEnemiesCount);
-            enemiesCount += increaseEnemiesCountStep;
+            var enemysCountToSpawn = Random.Range(_enemiesCount - _deltaEnemiesCount, _enemiesCount + _deltaEnemiesCount);
+            _enemiesCount += _increaseEnemiesCountStep;
             Vector3[] newEnemiesSpawnPositions = new Vector3[enemysCountToSpawn];
             
             for (var i = 0; i < enemysCountToSpawn; i++)
@@ -90,7 +90,7 @@ namespace Script.Wave
             
             waveChanger.NextWave(enemysCountToSpawn, newEnemiesSpawnPositions);
             _waveChangeCoroutine = StartCoroutine(WaveChangeCoroutine());
-            WaveChanged?.Invoke(CurrentWave, CurrentWave + 1, timeBetweenWaves);
+            WaveChanged?.Invoke(CurrentWave, CurrentWave + 1, _timeBetweenWaves);
         }
 
         private IEnumerator WaveChangeCoroutine()

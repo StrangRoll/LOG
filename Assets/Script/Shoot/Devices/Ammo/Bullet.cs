@@ -1,5 +1,4 @@
 using System;
-using NTC.Global.Pool;
 using Script.Health;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;

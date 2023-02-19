@@ -47,6 +47,8 @@ namespace Script.Spawn
             {
                 enemy.Kill();
             }
+
+            _isKillingAll = false;
         }
 
         private void OnEnemyDie(Enemy enemy)
@@ -54,18 +56,12 @@ namespace Script.Spawn
             _aliveEnemies--;
             enemy.EnemyDie -= OnEnemyDie;
             _aliveEnemiesList.Remove(enemy);
-
+            
             if (_aliveEnemies > 0)
                 return;
-            
-            if (_isKillingAll == false)
-            {
+
+            if (_isKillingAll == false) 
                 AllEnemiesDied?.Invoke();
-            }
-            else
-            {
-                _isKillingAll = false;
-            }
         }
     }
 }
