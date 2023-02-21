@@ -382,5 +382,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 299422554879511462, guid: 4eac370cbe07eec498d34e368b41111b, type: 3}
   bulletSpawnPosition: {fileID: 3397326214724987460}
-  reloadTime: 1
+  reloadTime: 1.2
   bulletDespawnObjects: 010000000200000003000000

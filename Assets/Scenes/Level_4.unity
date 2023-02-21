@@ -12526,10 +12526,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveChanger: {fileID: 240192460}
-  timeBetweenWaves: 15
-  enemiesCount: 3
-  deltaEnemiesCount: 1
-  increaseEnemiesCountStep: 1
 --- !u!114 &240192460
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,22 +10,15 @@ namespace Script.Shoot.Devices.Ammo
 {
     public class RocketBullet : Bullet
     {
-        public delegate void ExploseDelegate(BulletCollector bulletCollector);
 
         [SerializeField] private float speed;
         [SerializeField] private int damage;
         [SerializeField] private float exploseTime;
         [SerializeField] private Collider exploseCollider;
 
-        private ExploseDelegate _explose;
+        private ExploseDelegateContainer.ExploseDelegate _explose;
         private WaitForSeconds _waitExploseEnd;
-        
-        private void Awake()
-        {
-            _explose = Explose;
-            _waitExploseEnd = new WaitForSeconds(exploseTime);
-        }
-        
+
         protected override void SetMovementType()
         {
             bulletMover = new MoveForward(transform, speed);
@@ -38,6 +31,8 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetCollisionType()
         {
+            _explose = Explose;
+            _waitExploseEnd = new WaitForSeconds(exploseTime);
             bulletCollisionType = new ExploseAndDespawn(_explose);
         }
 

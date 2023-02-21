@@ -6,9 +6,9 @@ namespace Script.Shoot.Devices.Ammo.BulletCollisionTypes
     public class ExploseAndDespawn : IBulletCollisionType
     {
         private Collider _exploseCollider;
-        private RocketBullet.ExploseDelegate _exploseDelegate;
+        private ExploseDelegateContainer.ExploseDelegate _exploseDelegate;
 
-        public ExploseAndDespawn(RocketBullet.ExploseDelegate explose)
+        public ExploseAndDespawn(ExploseDelegateContainer.ExploseDelegate explose)
         {
             _exploseDelegate = explose;
         }

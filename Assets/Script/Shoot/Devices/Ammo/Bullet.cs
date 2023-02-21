@@ -1,4 +1,5 @@
 using System;
+using NTC.Global.Pool;
 using Script.Health;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Script.Shoot.Devices.Ammo
 {
-    public abstract class Bullet : MonoBehaviour
+    public abstract class Bullet : MonoBehaviour, IPoolItem
     {
         protected IBulletMover bulletMover;
         protected IBulletDamager bulletDamager;
@@ -16,13 +17,12 @@ namespace Script.Shoot.Devices.Ammo
 
         private DamagableType[] _targets = null;
         private BulletCollector _bulletCollector;
+        private bool _isActive;
 
         private void Start()
         {
-            SetMovementType();
-            SetDamageType();
-            SetCollisionType();
-            
+            SetBulletParameters();
+
             if (_targets == null)
                 Debug.LogError("Bullet targets not set.");
 
@@ -39,9 +39,17 @@ namespace Script.Shoot.Devices.Ammo
                 Debug.LogError("Bullet collision type not set");
         }
 
+        private void SetBulletParameters()
+        {
+            SetMovementType();
+            SetDamageType();
+            SetCollisionType();
+        }
+
         private void Update()
         {
-            bulletMover.Move();;
+            if (_isActive)
+                bulletMover.Move();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -53,7 +61,10 @@ namespace Script.Shoot.Devices.Ammo
                 bulletDamager.Damage(component);
 
             if (Array.IndexOf(_despawnObjects, component.Type) != -1)
+            {
                 bulletCollisionType.OnCollision(this, component, _bulletCollector);
+                _isActive = false;
+            }
         }
 
         public void Init(DamagableType[] targets, DamagableType[] despawnObjects, BulletCollector bulletCollector)
@@ -79,5 +90,15 @@ namespace Script.Shoot.Devices.Ammo
         protected abstract void SetDamageType();
 
         protected abstract void SetCollisionType();
+        
+        public void OnSpawn()
+        {
+            _isActive = true;
+        }
+
+        public void OnDespawn()
+        {
+            _isActive = false;
+        }
     }
 }
