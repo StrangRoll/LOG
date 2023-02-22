@@ -1,6 +1,7 @@
 using NTC.Global.Pool;
 using Script.Health;
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Arms
 {
@@ -15,6 +16,11 @@ namespace Script.Shoot.Devices.Arms
             var rotation = Random.Range(-deltaAngle, deltaAngle);
             newBullet.transform.Rotate(Vector3.up, rotation);
             newBullet.Init(targets, bulletDespawnObjects, bulletCollector);
+        }
+
+        protected override void DoAfterReloading()
+        {
+            return;
         }
     }
 }

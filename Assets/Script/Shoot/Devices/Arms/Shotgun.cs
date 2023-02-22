@@ -1,7 +1,7 @@
-using System.Numerics;
 using NTC.Global.Pool;
 using Script.Health;
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Script.Shoot.Devices.Arms
@@ -24,6 +24,11 @@ namespace Script.Shoot.Devices.Arms
                 newBullet.transform.Rotate(Vector3.up, angle);
                 newBullet.Init(targets, base.bulletDespawnObjects, bulletCollector);
             }
+        }
+
+        protected override void DoAfterReloading()
+        {
+            return;
         }
     }
 }

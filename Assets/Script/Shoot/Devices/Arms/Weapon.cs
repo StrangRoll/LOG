@@ -22,6 +22,7 @@ namespace Script.Shoot.Devices.Arms
         private void OnEnable()
         {
             _isReadyToShoot = true;
+            DoWithParentOnEnable();
         }
 
         private void Awake()
@@ -53,12 +54,17 @@ namespace Script.Shoot.Devices.Arms
         }
         
         protected virtual void DoWithParentAwake(){}
-
+        
+        protected virtual void DoWithParentOnEnable(){}
+        
         protected abstract void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector);
 
+        protected abstract void DoAfterReloading();
+            
         private IEnumerator Reloading()
         {
             yield return _waitReloading;
+            DoAfterReloading();
             _isReadyToShoot = true;
         }
     }

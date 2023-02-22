@@ -3,6 +3,7 @@ using NTC.Global.Pool;
 using Script.Health;
 using UnityEngine;
 using UnityEngine.Serialization;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Arms
 {
@@ -21,6 +22,11 @@ namespace Script.Shoot.Devices.Arms
         protected override void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector)
         {
             StartCoroutine(BurstOfShots(targets, bulletCollector));
+        }
+
+        protected override void DoAfterReloading()
+        {
+            return;
         }
 
         private IEnumerator BurstOfShots(DamagableType[] targets, BulletCollector bulletCollector)

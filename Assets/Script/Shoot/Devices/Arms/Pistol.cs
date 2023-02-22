@@ -1,5 +1,6 @@
 using NTC.Global.Pool;
 using Script.Health;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Arms
 {
@@ -12,6 +13,11 @@ namespace Script.Shoot.Devices.Arms
                 bullet.transform.rotation * bulletSpawnPosition.rotation);
 
             newBullet.Init(targets, bulletDespawnObjects, bulletCollector);
+        }
+
+        protected override void DoAfterReloading()
+        {
+            return;
         }
     }
 }

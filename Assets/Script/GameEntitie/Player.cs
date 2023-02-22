@@ -65,6 +65,7 @@ namespace Script.GameEntitie
             _positionMover.ChangePosition();
             gameObject.SetActive(true);
             ChangeWeapon();
+            _isReadyToWeaponChange = true;
         }
 
         public void Attack(DamagableType[] targets)

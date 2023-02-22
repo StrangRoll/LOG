@@ -17,7 +17,7 @@ namespace Script.Shoot.Devices.Ammo
 
         private DamagableType[] _targets = null;
         private BulletCollector _bulletCollector;
-        private bool _isActive;
+        private bool _isActive = true;
 
         private void Start()
         {
