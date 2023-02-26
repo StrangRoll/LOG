@@ -19,37 +19,10 @@ namespace Script.Shoot.Devices.Ammo
         private BulletCollector _bulletCollector;
         private bool _isActive = true;
 
-        private void Start()
-        {
-            SetBulletParameters();
-
-            if (_targets == null)
-                Debug.LogError("Bullet targets not set.");
-
-            if (_despawnObjects == null)
-                Debug.LogError("Bullet despawn objects not set.");
-            
-            if (bulletMover == null)
-                Debug.LogError("Bullet mover not set.");
-
-            if (bulletDamager == null)
-                Debug.LogError("Bulllet damager not set");
-
-            if (bulletCollisionType == null)
-                Debug.LogError("Bullet collision type not set");
-        }
-
-        private void SetBulletParameters()
-        {
-            SetMovementType();
-            SetDamageType();
-            SetCollisionType();
-        }
-
         private void Update()
         {
             if (_isActive)
-                bulletMover.Move();
+                bulletMover.MoveEachFrame();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -83,6 +56,9 @@ namespace Script.Shoot.Devices.Ammo
             {
                 _despawnObjects[i] = despawnObjects[i];
             }
+
+            SetBulletParameters();
+            CheckBulletParameters();
         }
 
         protected abstract void SetMovementType();
@@ -90,7 +66,7 @@ namespace Script.Shoot.Devices.Ammo
         protected abstract void SetDamageType();
 
         protected abstract void SetCollisionType();
-        
+
         public void OnSpawn()
         {
             _isActive = true;
@@ -99,6 +75,31 @@ namespace Script.Shoot.Devices.Ammo
         public void OnDespawn()
         {
             _isActive = false;
+        }
+
+        private void CheckBulletParameters()
+        {
+            if (_targets == null)
+                Debug.LogError("Bullet targets not set.");
+
+            if (_despawnObjects == null)
+                Debug.LogError("Bullet despawn objects not set.");
+            
+            if (bulletMover == null)
+                Debug.LogError("Bullet mover not set.");
+
+            if (bulletDamager == null)
+                Debug.LogError("Bulllet damager not set");
+
+            if (bulletCollisionType == null)
+                Debug.LogError("Bullet collision type not set");
+        }
+
+        private void SetBulletParameters()
+        {
+            SetMovementType();
+            SetDamageType();
+            SetCollisionType();
         }
     }
 }

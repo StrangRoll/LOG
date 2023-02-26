@@ -17,6 +17,7 @@ namespace Script.Shoot.Devices.Arms
             
             _meeleBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
                 bullet.transform.rotation * bulletSpawnPosition.rotation);
+            
             _meeleBullet.transform.SetParent(transform);
         }
         

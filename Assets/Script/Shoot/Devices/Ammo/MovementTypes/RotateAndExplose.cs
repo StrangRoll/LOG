@@ -13,7 +13,7 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
         private readonly Transform _bulletTransform;
         private readonly Collider _explosionCollider;
         private readonly float _bounceHeight;
-        private bool _isActive = false;
+        private Tween _hitAnimation;
 
 
         public RotateAndExplose(Transform bulletTransform, float hitDuration, float hitDelay, float bounceHeight, float returnDuration, 
@@ -26,14 +26,15 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
             _returnDuration = returnDuration;
             _explosionCollider = explosionCollider;
             _bounceHeight = bounceHeight;
-            _isActive = false;
         }
 
-        public void Move()
+        public void MoveEachFrame()
         {
-            if (_isActive)
-                return;
-            
+            return;
+        }
+
+        public void StartMove()
+        {
             var attack = DOTween.Sequence();
             attack.Append(_bulletTransform.DOLocalRotate(_endRotation, _hitDuration).SetRelative(true).SetEase(Ease.InQuad));
             attack.AppendCallback(ActivateExplosion);
@@ -42,7 +43,11 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
             attack.AppendCallback(DeactivateExplosion);
             attack.Append(_bulletTransform.DOLocalRotate(_endRotation * (-1), _returnDuration).SetRelative(true).SetEase(Ease.OutQuad));
             attack.Play();
-            _isActive = true;
+        }
+
+        public void StopMove()
+        {
+            throw new NotImplementedException();
         }
 
         private void ActivateExplosion()

@@ -24,7 +24,7 @@ namespace Script.Shoot.Devices.Ammo
 
         private void OnEnable()
         {
-            SetMovementType();
+            bulletMover.StartMove();
         }
 
         public void OnSpawn()

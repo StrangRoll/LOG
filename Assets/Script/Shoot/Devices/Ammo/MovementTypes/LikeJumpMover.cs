@@ -18,13 +18,23 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
             _gravity = gravity;
         }
         
-        public void Move()
+        public void MoveEachFrame()
         {
             _velocity.y -= _gravity * Time.deltaTime;
             var deltaPosition = _velocity * Time.deltaTime;
             _bulletTransform.position += deltaPosition;
             _bulletTransform.LookAt(_bulletTransform.position + deltaPosition);
             _bulletTransform.Rotate(_bulletTransform.up, 90);
+        }
+
+        public void StartMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopMove()
+        {
+            throw new NotImplementedException();
         }
     }
 }

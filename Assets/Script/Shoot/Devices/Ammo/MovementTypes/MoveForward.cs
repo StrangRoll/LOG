@@ -1,4 +1,5 @@
 using UnityEngine;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Ammo.MovementTypes
 {
@@ -13,9 +14,19 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
             _speed = speed;
         }
         
-        public void Move()
+        public void MoveEachFrame()
         {
             _transform.Translate(Vector3.left * (_speed * Time.deltaTime));
+        }
+
+        public void StartMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StopMove()
+        {
+            throw new NotImplementedException();
         }
     }
 }
