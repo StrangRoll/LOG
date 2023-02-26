@@ -53,7 +53,6 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
             if (_isReadyToStartMoving == false)
                 return;
             
-            Debug.Log(_bulletTransform.position + " " + _center);
             _isReadyToStartMoving = false;
             var path = CreatePath();
             _animation = _bulletTransform.DOPath(path, _duration, PathType.CatmullRom)

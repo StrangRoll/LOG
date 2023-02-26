@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 8965295596712177815}
   - component: {fileID: 5459764956719759154}
   - component: {fileID: 7791240570839026680}
-  - component: {fileID: 3448656666024878766}
-  - component: {fileID: 4602627368854547918}
+  - component: {fileID: 1684441446078202562}
   m_Layer: 0
-  m_Name: Axe 1
+  m_Name: Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8584125274245261869}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -85,20 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3448656666024878766
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8584125274245261869}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7281407, y: 1.3329532, z: 0.18338384}
-  m_Center: {x: 0.08433357, y: 0.23615134, z: 0}
---- !u!114 &4602627368854547918
+--- !u!114 &1684441446078202562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,12 +93,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8584125274245261869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd9a0ec68bab4d84bccd7d017f10d326, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fd963650fd52854cbd25e650cbe940b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  duration: 35
-  spiralRadius: 0.2
-  deltaRadius: 0.1
-  pointPerLoop: 10
-  circleCount: 25
+  bullet: {fileID: 3670976456675028294, guid: ef33a037d83f0b74b9d40ab2d2d5eb36, type: 3}
+  bulletSpawnPosition: {fileID: 8965295596712177815}
+  reloadTime: 2
+  bulletDespawnObjects: 0100000003000000

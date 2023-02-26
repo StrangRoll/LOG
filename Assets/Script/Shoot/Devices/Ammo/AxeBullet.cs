@@ -2,7 +2,6 @@ using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
-using UnityEngine.Serialization;
 using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Ammo
