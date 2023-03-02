@@ -7,32 +7,31 @@ using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Ammo
 {
-    public class HammerBullet : Bullet, IPoolItem
+    public class SpearBullet : Bullet, IPoolItem
     {
         [SerializeField] private int damage;
-        [SerializeField] private float hitDuration;
-        [SerializeField] private float hitDelay;
-        [SerializeField] private float returnDuration;
-        [SerializeField] private float bounceHeight;
-        [SerializeField] private Vector3 endRotation;
-        [SerializeField] private Collider explosionCollider;
+        [SerializeField] private float speed;
+        [SerializeField] private float distance;
 
         private Quaternion _standartRotation;
+        private Vector3 _standartPosition;
 
         private void OnEnable()
         {
             bulletMover.StartMove();
         }
-
+        
         public void OnSpawn()
         {
             _standartRotation = transform.localRotation;
+            _standartPosition = transform.localPosition;
             enabled = false;
         }
         
         public void OnDespawn()
         {
             transform.localRotation = _standartRotation;
+            transform.localPosition = _standartPosition;
             
             try
             {
@@ -47,8 +46,7 @@ namespace Script.Shoot.Devices.Ammo
         protected override void SetMovementType()
         {
             var bulletTransform = transform;
-            bulletMover = new RotateAndExplose(bulletTransform, hitDuration, hitDelay, bounceHeight, returnDuration, 
-                endRotation, explosionCollider);
+            bulletMover = new MoveForwardThenBack(bulletTransform, distance, speed);
         }
 
         protected override void SetDamageType()

@@ -1,6 +1,7 @@
 using NTC.Global.Pool;
 using Script.Health;
 using Script.Shoot.Devices.Ammo;
+using UnityEngine;
 using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Arms
@@ -14,11 +15,12 @@ namespace Script.Shoot.Devices.Arms
         {
             if (_meeleBullet != null) 
                 NightPool.Despawn(_meeleBullet);
-            
-            _meeleBullet = NightPool.Spawn(bullet, bulletSpawnPosition.position,
-                bullet.transform.rotation * bulletSpawnPosition.rotation);
-            
-            _meeleBullet.transform.SetParent(transform);
+
+            _meeleBullet = NightPool.Spawn(bullet, transform);
+
+            _meeleBullet.transform.localPosition = bulletSpawnPosition.localPosition;
+            _meeleBullet.transform.localRotation = bullet.transform.localRotation * bulletSpawnPosition.localRotation;
+            _meeleBullet.transform.localScale = bullet.transform.localScale;
         }
         
         protected override void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector)
