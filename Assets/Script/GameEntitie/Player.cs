@@ -24,6 +24,7 @@ namespace Script.GameEntitie
         private bool _isReadyToWeaponChange;
 
         public event UnityAction PlayerDead;
+        public event UnityAction<Weapon> WeaponChanged;
 
         public DamagableType Type { get; } = DamagableType.Player;
         public DamagableType[] Targets { get; } = new DamagableType[] { DamagableType.Enemy};
@@ -98,6 +99,7 @@ namespace Script.GameEntitie
 
             _currentWeapon = allWeapons[newWeaponIndex];
             _currentWeapon.gameObject.SetActive(true);  
+            WeaponChanged?.Invoke(_currentWeapon);
         }
 
         private void OnWaveChanged(float currentWave, float nextWave, float waveTime)

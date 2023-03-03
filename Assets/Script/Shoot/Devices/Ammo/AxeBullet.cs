@@ -17,7 +17,14 @@ namespace Script.Shoot.Devices.Ammo
 
         private void OnDisable()
         {
-            bulletMover.StopMove();
+            try
+            {
+                bulletMover.StopMove();
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         protected override void SetMovementType()

@@ -2,6 +2,7 @@ using System.Collections;
 using Script.Health;
 using Script.Shoot.Devices.Ammo;
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 namespace Script.Shoot.Devices.Arms
@@ -18,6 +19,8 @@ namespace Script.Shoot.Devices.Arms
         private bool _isReadyToShoot = true;
         private WaitForSeconds _waitReloading;
         private Coroutine _reloadingCoroutine;
+
+        public event UnityAction<float> WeaponReloadStarted;
 
         private void OnEnable()
         {
@@ -45,6 +48,7 @@ namespace Script.Shoot.Devices.Arms
             SpawnBullets(targets, _bulletCollector);
             _isReadyToShoot = false;
             _reloadingCoroutine = StartCoroutine(Reloading());
+            WeaponReloadStarted?.Invoke(reloadTime);
         }
         
         protected virtual void DoWithParentAwake(){}
