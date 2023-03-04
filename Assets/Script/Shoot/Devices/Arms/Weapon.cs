@@ -3,6 +3,7 @@ using Script.Health;
 using Script.Shoot.Devices.Ammo;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Script.Shoot.Devices.Arms
@@ -12,9 +13,15 @@ namespace Script.Shoot.Devices.Arms
         [Inject] private BulletCollector _bulletCollector;
         
         [SerializeField] protected Bullet bullet;
-        [SerializeField] protected Transform bulletSpawnPosition;
-        [SerializeField] private float reloadTime;
         [SerializeField] protected DamagableType[] bulletDespawnObjects;
+        [SerializeField] protected Transform bulletSpawnPosition;
+        
+        [SerializeField] private float reloadTime;
+        [SerializeField] private Sprite activeSprite;
+        [SerializeField] private Sprite inactiveSprite;
+
+        public Sprite ActiveSprite => activeSprite;
+        public Sprite InactiveSprite => inactiveSprite;
 
         private bool _isReadyToShoot = true;
         private WaitForSeconds _waitReloading;

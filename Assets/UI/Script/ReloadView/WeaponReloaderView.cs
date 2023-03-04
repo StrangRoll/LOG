@@ -15,11 +15,11 @@ namespace UI.Script.ReloadView
         [SerializeField] private Image coolTimeImage;
         [SerializeField] private Image iconImage;
         [SerializeField] private Image backgroundImage;
-        [SerializeField] private Sprite activeIconSprite;
-        [SerializeField] private Sprite inactiveIconSprite;
         [SerializeField] private Sprite activeBackgoundSprite;
         [SerializeField] private Sprite inactiveBackgoundSprite;
 
+        private Sprite _activeIconSprite;
+        private Sprite _inactiveIconSprite;
         private readonly ReloadView _reloadView = new ReloadView();
         private Weapon _currentWeapon = null;
         
@@ -42,6 +42,9 @@ namespace UI.Script.ReloadView
             
             _currentWeapon = currentWeapon;
             _currentWeapon.WeaponReloadStarted += OnWeaponReloadStarted;
+            _activeIconSprite = currentWeapon.ActiveSprite;
+            _inactiveIconSprite = currentWeapon.InactiveSprite;
+            ChangeToActiveImage();
         }
 
         private void OnWeaponReloadStarted(float reloadTime)
@@ -59,13 +62,13 @@ namespace UI.Script.ReloadView
 
         private void ChangeToActiveImage()
         {
-            iconImage.sprite = activeIconSprite;
+            iconImage.sprite = _activeIconSprite;
             backgroundImage.sprite = activeBackgoundSprite;
         }
 
         private void ChangeToInactiveImage()
         {
-            iconImage.sprite = inactiveIconSprite;
+            iconImage.sprite = _inactiveIconSprite;
             backgroundImage.sprite = inactiveBackgoundSprite;
         }
     }
