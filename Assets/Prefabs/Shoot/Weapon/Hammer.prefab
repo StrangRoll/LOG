@@ -46,9 +46,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6840670929765934936, guid: e65baf7e8ac6bf947854ab53c472f57f, type: 3}
+  bulletDespawnObjects: 
   bulletSpawnPosition: {fileID: 81922134189142903}
   reloadTime: 1.5
-  bulletDespawnObjects: 
+  activeSprite: {fileID: 21300000, guid: 6bd86540945d95f429dba3ca42d19661, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: ee473750333650842989a193e052d7d5, type: 3}
 --- !u!1 &2387255251269888206
 GameObject:
   m_ObjectHideFlags: 0
