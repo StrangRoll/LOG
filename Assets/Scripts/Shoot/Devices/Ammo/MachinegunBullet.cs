@@ -13,7 +13,7 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private int damage;
         [SerializeField] private float minSpeed;
         [SerializeField] private float maxSpeed;
-        private ParticleSystem shootEffect;
+        [SerializeField] private ParticleSystem shootEffect;
 
         protected override void SetMovementType()
         {
