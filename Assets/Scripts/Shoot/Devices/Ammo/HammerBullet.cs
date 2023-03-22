@@ -1,6 +1,7 @@
 using NTC.Global.Pool;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
+using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
 using NotImplementedException = System.NotImplementedException;
@@ -16,6 +17,7 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private float bounceHeight;
         [SerializeField] private Vector3 endRotation;
         [SerializeField] private Collider explosionCollider;
+        [SerializeField] private ParticleSystem effect;
 
         private Quaternion _standartRotation;
 
@@ -26,12 +28,14 @@ namespace Script.Shoot.Devices.Ammo
 
         public void OnSpawn()
         {
+            base.OnSpawn();
             _standartRotation = transform.localRotation;
             enabled = false;
         }
-        
+
         public void OnDespawn()
         {
+            base.OnDespawn();
             transform.localRotation = _standartRotation;
             
             try
@@ -59,6 +63,11 @@ namespace Script.Shoot.Devices.Ammo
         protected override void SetCollisionType()
         {
             bulletCollisionType = new WithoutDespawn();
+        }
+
+        protected override void SetBulletEffect()
+        {
+            bulletEffect = new OnCollisionEffect(effect);
         }
     }
 }

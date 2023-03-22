@@ -1145,7 +1145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiePrefabs:
   - {fileID: -811039829694504199, guid: 8807a500f49196444b1272b9549934ff, type: 3}
-  - {fileID: 4346274833297697716, guid: 8d7413bf5e16cf0428404ea7cd85d13c, type: 3}
   - {fileID: 2828040941195040405, guid: f13b6e263294c6742972eef24897742a, type: 3}
   spawningEnemiePrefab: {fileID: 2828040941195040405, guid: f13b6e263294c6742972eef24897742a, type: 3}
 --- !u!4 &50649941 stripped

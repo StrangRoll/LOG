@@ -1,6 +1,7 @@
 using NTC.Global.Pool;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
+using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
 using NotImplementedException = System.NotImplementedException;
@@ -12,6 +13,7 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private int damage;
         [SerializeField] private float speed;
         [SerializeField] private float distance;
+        [SerializeField] private ParticleSystem effect;
 
         private Quaternion _standartRotation;
         private Vector3 _standartPosition;
@@ -20,16 +22,18 @@ namespace Script.Shoot.Devices.Ammo
         {
             bulletMover.StartMove();
         }
-        
+
         public void OnSpawn()
         {
+            base.OnSpawn();
             _standartRotation = transform.localRotation;
             _standartPosition = transform.localPosition;
             enabled = false;
         }
-        
+
         public void OnDespawn()
         {
+            base.OnDespawn();
             transform.localRotation = _standartRotation;
             transform.localPosition = _standartPosition;
             
@@ -57,6 +61,11 @@ namespace Script.Shoot.Devices.Ammo
         protected override void SetCollisionType()
         {
             bulletCollisionType = new WithoutDespawn();
+        }
+
+        protected override void SetBulletEffect()
+        {
+            bulletEffect = new FollowingEffect(effect);
         }
     }
 }

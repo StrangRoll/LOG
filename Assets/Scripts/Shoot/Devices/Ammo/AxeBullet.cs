@@ -1,5 +1,6 @@
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
+using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
 using NotImplementedException = System.NotImplementedException;
@@ -14,6 +15,7 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private float deltaRadius;
         [SerializeField] private int pointPerLoop;
         [SerializeField] private int circleCount;
+        [SerializeField] private ParticleSystem effect;
 
         private void OnDisable()
         {
@@ -42,6 +44,11 @@ namespace Script.Shoot.Devices.Ammo
         protected override void SetCollisionType()
         {
             bulletCollisionType = new OnlyDespawn();
+        }
+
+        protected override void SetBulletEffect()
+        {
+            bulletEffect = new FollowingEffect(effect);
         }
     }
 }

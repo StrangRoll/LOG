@@ -65,7 +65,7 @@ namespace Script.Shoot.Devices.Arms
         protected abstract void SpawnBullets(DamagableType[] targets, BulletCollector bulletCollector);
 
         protected abstract void DoAfterReloading();
-            
+
         private IEnumerator Reloading()
         {
             yield return _waitReloading;

@@ -92,3 +92,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   speed: 40
+  shootEffect: {fileID: 19813786, guid: 346f3bf3686d682498113714ee132099, type: 3}

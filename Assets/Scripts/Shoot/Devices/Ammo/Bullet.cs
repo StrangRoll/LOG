@@ -3,6 +3,7 @@ using NTC.Global.Pool;
 using Script.Health;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
+using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Script.Shoot.Devices.Ammo
         protected IBulletMover bulletMover;
         protected IBulletDamager bulletDamager;
         protected IBulletCollisionType bulletCollisionType;
+        protected IBulletEffect bulletEffect;
         protected DamagableType[] _despawnObjects = null;
 
         private DamagableType[] _targets = null;
@@ -67,6 +69,8 @@ namespace Script.Shoot.Devices.Ammo
 
         protected abstract void SetCollisionType();
 
+        protected abstract void SetBulletEffect();
+
         public void OnSpawn()
         {
             _isActive = true;
@@ -75,6 +79,7 @@ namespace Script.Shoot.Devices.Ammo
         public void OnDespawn()
         {
             _isActive = false;
+            bulletEffect.OnBulletDespawn();
         }
 
         private void CheckBulletParameters()
@@ -93,6 +98,9 @@ namespace Script.Shoot.Devices.Ammo
 
             if (bulletCollisionType == null)
                 Debug.LogError("Bullet collision type not set");
+            
+            if (bulletEffect == null)
+                Debug.LogError("Bullet effect not set");
         }
 
         private void SetBulletParameters()
@@ -100,6 +108,7 @@ namespace Script.Shoot.Devices.Ammo
             SetMovementType();
             SetDamageType();
             SetCollisionType();
+            SetBulletEffect();
         }
     }
 }

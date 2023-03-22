@@ -2,6 +2,7 @@ using System.Collections;
 using NTC.Global.Pool;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
+using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
 using NotImplementedException = System.NotImplementedException;
@@ -17,6 +18,7 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private float gravity;
         [SerializeField] private float exploseTime;
         [SerializeField] private Collider exploseCollider;
+        [SerializeField] private ParticleSystem effect;
 
         private ExploseDelegateContainer.ExploseDelegate _explose;
         private WaitForSeconds _waitExploseEnd;
@@ -36,6 +38,11 @@ namespace Script.Shoot.Devices.Ammo
             _explose = Explose;
             _waitExploseEnd = new WaitForSeconds(exploseTime);
             bulletCollisionType = new ExploseAndDespawn(_explose);
+        }
+
+        protected override void SetBulletEffect()
+        {
+            bulletEffect = new OnCollisionEffect(effect);
         }
 
         private void Explose(BulletCollector bulletCollector)
