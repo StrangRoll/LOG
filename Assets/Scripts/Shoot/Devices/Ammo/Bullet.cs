@@ -107,8 +107,8 @@ namespace Script.Shoot.Devices.Ammo
         {
             SetMovementType();
             SetDamageType();
-            SetCollisionType();
             SetBulletEffect();
+            SetCollisionType();
         }
     }
 }

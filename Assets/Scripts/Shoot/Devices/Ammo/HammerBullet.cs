@@ -1,3 +1,4 @@
+using System;
 using NTC.Global.Pool;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
@@ -20,6 +21,8 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private ParticleSystem effect;
 
         private Quaternion _standartRotation;
+
+        public Action ExplosionHappened;
 
         private void OnEnable()
         {
@@ -67,7 +70,7 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = new OnCollisionEffect(effect);
+            bulletEffect = null;
         }
     }
 }

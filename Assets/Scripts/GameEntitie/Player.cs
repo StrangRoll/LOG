@@ -70,15 +70,8 @@ namespace Script.GameEntitie
         }
 
         public void Attack(DamagableType[] targets)
-        {
-            try
-            {
-                _currentWeapon.TryShoot(targets);
-            }
-            catch 
-            {
-                Debug.LogError("Try to Invoke method 'Shoot' in current weapon, but it doesn't exist");
-            }
+        { 
+            _currentWeapon.TryShoot(targets);
         }
 
         private void OnShoot()

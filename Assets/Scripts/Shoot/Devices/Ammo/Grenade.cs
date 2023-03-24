@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using NTC.Global.Pool;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
@@ -23,6 +24,8 @@ namespace Script.Shoot.Devices.Ammo
         private ExploseDelegateContainer.ExploseDelegate _explose;
         private WaitForSeconds _waitExploseEnd;
         
+        public event Action ExplosionHappened;
+
         protected override void SetMovementType()
         {
             bulletMover = new LikeJumpMover(transform, speedX, speedY, angle, gravity);
@@ -42,12 +45,13 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = new OnCollisionEffect(effect);
+            bulletEffect = null;
         }
 
         private void Explose(BulletCollector bulletCollector)
         {
             StartCoroutine(Explosion(bulletCollector));
+            ExplosionHappened?.Invoke();
         }
 
         private IEnumerator Explosion(BulletCollector bulletCollector)

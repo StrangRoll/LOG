@@ -5,6 +5,7 @@ using Script.Shoot.Devices.Ammo.BulletDamageType;
 using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
+using UnityEngine.Events;
 using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Ammo
@@ -15,9 +16,12 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private float exploseTime;
         [SerializeField] private Collider exploseCollider;
         [SerializeField] private ParticleSystem effect;
+        [SerializeField] private GameObject view;
 
         private ExploseDelegateContainer.ExploseDelegate _explose;
         private WaitForSeconds _waitExploseEnd;
+        
+        public event UnityAction ExplosionHappened;
         
         protected override void SetMovementType()
         {
@@ -38,11 +42,14 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = new OnCollisionEffect(effect);
+            bulletEffect = new OnCollisionEffect(effect, ref ExplosionHappened);
         }
 
         private void Explose(BulletCollector bulletCollector)
         {
+            ExplosionHappened?.Invoke();
+            ExplosionHappened = null;
+            view.SetActive(false);
             StartCoroutine(Explosion(bulletCollector));
         }
 
@@ -53,6 +60,7 @@ namespace Script.Shoot.Devices.Ammo
             exploseCollider.enabled = false;
             bulletCollector.UnRegister(this);
             NightPool.Despawn(this);
+            view.SetActive(true);
         }
     }
 }
