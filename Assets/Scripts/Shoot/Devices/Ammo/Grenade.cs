@@ -6,6 +6,7 @@ using Script.Shoot.Devices.Ammo.BulletDamageType;
 using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
+using UnityEngine.Events;
 using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Ammo
@@ -19,12 +20,13 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private float gravity;
         [SerializeField] private float exploseTime;
         [SerializeField] private Collider exploseCollider;
-        [SerializeField] private ParticleSystem effect;
+        [SerializeField] private ParticleSystem trailEffect;
+        [SerializeField] private ParticleSystem exploseEffect;
 
         private ExploseDelegateContainer.ExploseDelegate _explose;
         private WaitForSeconds _waitExploseEnd;
         
-        public event Action ExplosionHappened;
+        public event UnityAction ExplosionHappened;
 
         protected override void SetMovementType()
         {
@@ -45,13 +47,13 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = null;
+            bulletEffect = new TrailWithExploseEffect(trailEffect, exploseEffect, ref ExplosionHappened);
         }
 
         private void Explose(BulletCollector bulletCollector)
         {
-            StartCoroutine(Explosion(bulletCollector));
             ExplosionHappened?.Invoke();
+            StartCoroutine(Explosion(bulletCollector));
         }
 
         private IEnumerator Explosion(BulletCollector bulletCollector)

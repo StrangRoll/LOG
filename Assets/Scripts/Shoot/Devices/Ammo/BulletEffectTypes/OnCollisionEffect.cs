@@ -24,6 +24,7 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
         
         public void PlayEffect()
         {
+            _bulletEffect.transform.rotation = Quaternion.identity;
             _bulletEffect.Play();
         }
 
