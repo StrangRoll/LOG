@@ -99,6 +99,7 @@ MonoBehaviour:
   minSpeed: 6
   maxSpeed: 15
   shootEffect: {fileID: 8736161771986379558}
+  startEffectPosition: {x: 0.0155, y: 0, z: 0}
 --- !u!1001 &8736161771971557052
 PrefabInstance:
   m_ObjectHideFlags: 0
