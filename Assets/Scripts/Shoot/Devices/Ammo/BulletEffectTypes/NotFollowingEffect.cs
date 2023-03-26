@@ -25,12 +25,7 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
             _shootEffect.gameObject.SetActive(true);
             _shootEffect.Play();
         }
-
-        public void OnBulletDisable()
-        {
-
-        }
-
+        
         private void ChangeParent(Transform bulletTransform, Vector3 effectPosition)
         {
             var shootTransform = _shootEffect.transform;

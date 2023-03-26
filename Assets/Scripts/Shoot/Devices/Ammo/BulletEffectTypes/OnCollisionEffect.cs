@@ -13,13 +13,15 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
         private bool _isChangingParentDuringEffect; 
         
         public OnCollisionEffect(ParticleSystem bulletEffect, ref UnityAction exploseEvent,
-            bool isChangingParentDuringEffect = false, Transform bulletTransform = null)
+            bool isChangingParentDuringEffect = false, Transform bulletTransform = null, 
+            Vector3 startPosition = default(Vector3))
         {
             _bulletEffect = bulletEffect;
-            _startPosition = bulletEffect.transform.localPosition;
+            _startPosition = startPosition;
             _bulletTransform = bulletTransform;
             _isChangingParentDuringEffect = isChangingParentDuringEffect;
             exploseEvent += OnExplose;
+            ChangeParent();
         }
 
         private void OnExplose()
@@ -37,12 +39,12 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
             
             _bulletEffect.Play();
         }
-
-        public void OnBulletDisable()
+        
+        private void ChangeParent()
         {
             if (_isChangingParentDuringEffect == false)
                 return;
-            
+
             var bulletEffectTransform = _bulletEffect.transform;
             bulletEffectTransform.parent = _bulletTransform;
             bulletEffectTransform.localPosition = _startPosition;

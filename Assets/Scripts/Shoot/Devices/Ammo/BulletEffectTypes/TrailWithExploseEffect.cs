@@ -21,10 +21,5 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
         {
             _followingEffect.PlayEffect();
         }
-
-        public void OnBulletDisable()
-        {
-            return;
-        }
     }
 }

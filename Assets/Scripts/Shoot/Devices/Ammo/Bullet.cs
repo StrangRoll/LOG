@@ -42,11 +42,6 @@ namespace Script.Shoot.Devices.Ammo
             }
         }
 
-        private void OnDisable()
-        {
-            bulletEffect?.OnBulletDisable();
-        }
-
         public void Init(DamagableType[] targets, DamagableType[] despawnObjects, BulletCollector bulletCollector)
         {
             _bulletCollector = bulletCollector;

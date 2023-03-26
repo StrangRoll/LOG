@@ -21,6 +21,7 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private Vector3 endRotation;
         [SerializeField] private Collider explosionCollider;
         [SerializeField] private ParticleSystem exploseEffect;
+        [SerializeField] private Vector3 explosionPosition;
 
         private Quaternion _standartRotation;
 
@@ -29,6 +30,7 @@ namespace Script.Shoot.Devices.Ammo
         private void OnEnable()
         {
             bulletMover.StartMove();
+            SetBulletEffect();
             StartCoroutine(WhaitUntilExplose());
         }
 
@@ -73,7 +75,8 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = new OnCollisionEffect(exploseEffect, ref ExplosionHappened, true, transform);
+            bulletEffect = new OnCollisionEffect(exploseEffect, ref ExplosionHappened, 
+                true, transform, explosionPosition);
         }
 
         private IEnumerator WhaitUntilExplose()

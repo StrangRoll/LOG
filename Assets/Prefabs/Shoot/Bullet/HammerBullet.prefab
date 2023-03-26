@@ -107,6 +107,7 @@ MonoBehaviour:
   endRotation: {x: 0, y: 0, z: 100}
   explosionCollider: {fileID: 3284586134619137741}
   exploseEffect: {fileID: 3564995846949940997}
+  explosionPosition: {x: -0.0000001243827, y: 0.8690001, z: 0}
 --- !u!65 &2431553906357923224
 BoxCollider:
   m_ObjectHideFlags: 0
