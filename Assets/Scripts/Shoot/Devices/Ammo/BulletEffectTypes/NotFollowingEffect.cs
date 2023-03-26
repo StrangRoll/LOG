@@ -21,8 +21,6 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
         public void PlayEffect()
         {
             _shootEffect.transform.localPosition = _startPosition;
-            Debug.Log(_startPosition);
-            Debug.Log(_shootEffect.transform.localPosition);
             _shootEffect.transform.parent = null;
             _shootEffect.gameObject.SetActive(true);
             _shootEffect.Play();
@@ -35,7 +33,6 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
 
         private void ChangeParent(Transform bulletTransform, Vector3 effectPosition)
         {
-            Debug.Log(1);
             var shootTransform = _shootEffect.transform;
             shootTransform.parent = bulletTransform;
             shootTransform.localPosition = effectPosition;
