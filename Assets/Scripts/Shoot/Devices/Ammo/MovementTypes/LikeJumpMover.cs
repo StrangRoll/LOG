@@ -14,6 +14,7 @@ namespace Script.Shoot.Devices.Ammo.MovementTypes
             _bulletTransform = bulletTransform;
             _velocity = Quaternion.AngleAxis(angle, bulletTransform.right * (-1)) * bulletTransform.forward;
             _velocity.x *= speedX;
+            _velocity.z *= speedX;
             _velocity.y *= speedY;
             _gravity = gravity;
         }

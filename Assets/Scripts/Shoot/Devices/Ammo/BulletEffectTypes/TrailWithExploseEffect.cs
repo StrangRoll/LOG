@@ -22,7 +22,7 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
             _followingEffect.PlayEffect();
         }
 
-        public void OnBulletDespawn()
+        public void OnBulletDisable()
         {
             return;
         }

@@ -17,7 +17,7 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
             _shootEffect.Play();
         }
 
-        public void OnBulletDespawn()
+        public void OnBulletDisable()
         {
             return;
         }

@@ -8,12 +8,17 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
     public class OnCollisionEffect : IBulletEffect
     {
         private ParticleSystem _bulletEffect;
-
-        private UnityAction _exposionEvent;
+        private Transform _bulletTransform;
+        private Vector3 _startPosition;
+        private bool _isChangingParentDuringEffect; 
         
-        public OnCollisionEffect(ParticleSystem bulletEffect, ref UnityAction exploseEvent)
+        public OnCollisionEffect(ParticleSystem bulletEffect, ref UnityAction exploseEvent,
+            bool isChangingParentDuringEffect = false, Transform bulletTransform = null)
         {
             _bulletEffect = bulletEffect;
+            _startPosition = bulletEffect.transform.localPosition;
+            _bulletTransform = bulletTransform;
+            _isChangingParentDuringEffect = isChangingParentDuringEffect;
             exploseEvent += OnExplose;
         }
 
@@ -21,16 +26,26 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
         {
             PlayEffect();
         }
-        
+
         public void PlayEffect()
         {
-            _bulletEffect.transform.rotation = Quaternion.identity;
+            var bulletEffectTransform = _bulletEffect.transform;
+            bulletEffectTransform.rotation = Quaternion.identity;
+            
+            if (_isChangingParentDuringEffect)
+                bulletEffectTransform.parent = null;
+            
             _bulletEffect.Play();
         }
 
-        public void OnBulletDespawn()
+        public void OnBulletDisable()
         {
-            return;
+            if (_isChangingParentDuringEffect == false)
+                return;
+            
+            var bulletEffectTransform = _bulletEffect.transform;
+            bulletEffectTransform.parent = _bulletTransform;
+            bulletEffectTransform.localPosition = _startPosition;
         }
     }
 }

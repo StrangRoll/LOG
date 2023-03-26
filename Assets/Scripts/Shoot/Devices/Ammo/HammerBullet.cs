@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using NTC.Global.Pool;
 using Script.Shoot.Devices.Ammo.BulletCollisionTypes;
 using Script.Shoot.Devices.Ammo.BulletDamageType;
 using Script.Shoot.Devices.Ammo.BulletEffectTypes;
 using Script.Shoot.Devices.Ammo.MovementTypes;
 using UnityEngine;
+using UnityEngine.Events;
 using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Shoot.Devices.Ammo
@@ -18,15 +20,16 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private float bounceHeight;
         [SerializeField] private Vector3 endRotation;
         [SerializeField] private Collider explosionCollider;
-        [SerializeField] private ParticleSystem effect;
+        [SerializeField] private ParticleSystem exploseEffect;
 
         private Quaternion _standartRotation;
 
-        public Action ExplosionHappened;
+        public event UnityAction ExplosionHappened;
 
         private void OnEnable()
         {
             bulletMover.StartMove();
+            StartCoroutine(WhaitUntilExplose());
         }
 
         public void OnSpawn()
@@ -70,7 +73,13 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = null;
+            bulletEffect = new OnCollisionEffect(exploseEffect, ref ExplosionHappened, true, transform);
+        }
+
+        private IEnumerator WhaitUntilExplose()
+        {
+            yield return new WaitForSeconds(hitDuration);
+            ExplosionHappened?.Invoke();
         }
     }
 }

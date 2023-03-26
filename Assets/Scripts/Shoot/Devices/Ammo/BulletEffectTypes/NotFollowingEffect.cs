@@ -24,7 +24,7 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
             _shootEffect.Play();
         }
 
-        public void OnBulletDespawn()
+        public void OnBulletDisable()
         {
             var shootTransform = _shootEffect.transform;
             shootTransform.parent = _bulletTransform;

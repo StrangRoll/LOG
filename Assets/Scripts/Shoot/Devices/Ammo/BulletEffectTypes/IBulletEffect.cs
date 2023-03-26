@@ -4,6 +4,6 @@ namespace Script.Shoot.Devices.Ammo.BulletEffectTypes
     {
         public void PlayEffect();
 
-        public void OnBulletDespawn();
+        public void OnBulletDisable();
     }
 }
