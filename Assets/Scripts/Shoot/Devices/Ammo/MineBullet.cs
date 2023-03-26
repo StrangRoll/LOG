@@ -42,7 +42,7 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = new OnCollisionEffect(effect, ref ExplosionHappened, transform);
+            bulletEffect = new OnCollisionEffect(effect, ref ExplosionHappened);
         }
 
         private void Explose(BulletCollector bulletCollector)
