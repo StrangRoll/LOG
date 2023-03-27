@@ -1,5 +1,4 @@
-using IJunior.TypedScenes;
-using Script.Loader.Info;
+using UnityEngine.SceneManagement;
 
 namespace Script.Loader
 {
@@ -7,8 +6,7 @@ namespace Script.Loader
     {
         public void LoadToMainMenu()
         {
-            var info = new InfoToMainMenu();
-            MainMenu.Load(info);
+            SceneManager.LoadScene(ScenesID.MainMenu);
         }
     }
 }

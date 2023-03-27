@@ -9,6 +9,7 @@ namespace UI.Script.UIActivator
     public class GameOverUIActivator: MonoBehaviour
     {
         [SerializeField] private Image gameOverImage;
+        [SerializeField] private PauseMenuActivator pauseMenuActivator;
 
         [Inject] private Player _player;
         [Inject] private GameRestarter _gameRestarter;
@@ -38,6 +39,7 @@ namespace UI.Script.UIActivator
         private void Activate()
         {
             gameOverImage.gameObject.SetActive(true);
+            pauseMenuActivator.ForPauseTemple();
         }
 
         private void Deactivate()

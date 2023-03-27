@@ -26,5 +26,10 @@ namespace UI.Script.UIActivator
         {
             pauseMenu.gameObject.SetActive(isPause);
         }
+
+        public void ForPauseTemple()
+        {
+            Pause(false);
+        }
     }
 }

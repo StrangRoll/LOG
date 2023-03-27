@@ -1,7 +1,6 @@
-using IJunior.TypedScenes;
-using Script.Loader.Info;
 using UI.Script;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Script.Loader
@@ -25,22 +24,20 @@ namespace Script.Loader
         private void OnStartButtonClicked()
         {
             var levelIndex = Random.Range(1, LevelsCount + 1);
-
-            var info = new InfoToLevel();
-
+            
             switch (levelIndex)
             {
                 case (1):
-                    Level_1.Load(info);
+                    SceneManager.LoadScene(ScenesID.Level1);
                     break;
                 case (2):
-                    Level_2.Load(info);
+                    SceneManager.LoadScene(ScenesID.Level2);
                     break;
                 case (3):
-                    Level_3.Load(info);
+                    SceneManager.LoadScene(ScenesID.Level3);
                     break;
                 case (4):
-                    Level_4.Load(info);
+                    SceneManager.LoadScene(ScenesID.Level4);
                     break;
                 default:
                     Debug.LogError("Invalid level index: " + levelIndex);

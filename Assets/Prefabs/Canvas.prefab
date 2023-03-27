@@ -5489,6 +5489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverImage: {fileID: 7666223193816158044}
+  pauseMenuActivator: {fileID: 7666223194344915239}
 --- !u!114 &7666223193453552141
 MonoBehaviour:
   m_ObjectHideFlags: 0
