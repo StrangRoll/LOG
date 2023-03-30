@@ -19,7 +19,7 @@ namespace UI.Script.UIActivator
 
         private void OnDisable()
         {
-            _pauseManager.UnRegister(this);
+            _pauseManager.UnRegister(this); 
         }
 
         public void Pause(bool isPause)
