@@ -14,7 +14,8 @@ namespace Script.Shoot.Devices.Ammo
         [SerializeField] private int damage;
         [SerializeField] private float speed;
         [SerializeField] private ParticleSystem shootEffect;
-        [SerializeField] private Vector3 _effectPosition;
+        [SerializeField] private Vector3 effectPosition;
+        [SerializeField] private Vector3 effectRotation;
 
         protected override void SetMovementType()
         {
@@ -33,7 +34,8 @@ namespace Script.Shoot.Devices.Ammo
 
         protected override void SetBulletEffect()
         {
-            bulletEffect = new NotFollowingEffect(shootEffect, transform, _effectPosition);
+            bulletEffect = new NotFollowingEffect(shootEffect, transform, 
+                effectPosition, effectRotation);
             bulletEffect.PlayEffect();
         }
     }

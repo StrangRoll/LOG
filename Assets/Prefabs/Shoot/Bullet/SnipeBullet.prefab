@@ -176,4 +176,5 @@ MonoBehaviour:
   damage: 1
   speed: 50
   shootEffect: {fileID: 6753002245378728804}
-  _effectPosition: {x: 0.0034, y: 0, z: 0}
+  effectPosition: {x: 0, y: 0, z: 0}
+  effectRotation: {x: 90, y: 0, z: 0}

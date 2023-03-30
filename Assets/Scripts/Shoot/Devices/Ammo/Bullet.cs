@@ -58,7 +58,7 @@ namespace Script.Shoot.Devices.Ammo
             {
                 _despawnObjects[i] = despawnObjects[i];
             }
-
+            
             SetBulletParameters();
             CheckBulletParameters();
         }
