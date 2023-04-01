@@ -32343,25 +32343,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4167796744804570, guid: 505ad28b849b40247ac593fc3686dd16, type: 3}
   m_PrefabInstance: {fileID: 1059632506}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1060551729 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5947740814871986958, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-  m_PrefabInstance: {fileID: 7666223193704349778}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1060551733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060551729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementRange: 50
-  m_ControlPath: <Gamepad>/rightStick
 --- !u!4 &1061303273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4961210537442604, guid: da069710315859f45b006a49bab26fe9, type: 3}
@@ -42071,25 +42052,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!1 &1322675610 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8505092132844747458, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-  m_PrefabInstance: {fileID: 7666223193704349778}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1322675614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322675610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9d677f1681015749b15c436eec6d880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementRange: 50
-  m_ControlPath: <Gamepad>/leftStick
 --- !u!1 &1323365556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1986053002286778, guid: 505ad28b849b40247ac593fc3686dd16, type: 3}
@@ -78179,21 +78141,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5947740814025063563, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.6698758
-      objectReference: {fileID: 0}
-    - target: {fileID: 5947740815060810005, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5947740815060810005, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5947740815060810005, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 341
+    - target: {fileID: 5947740814025063566, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7666223193447434126, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -78343,9 +78293,9 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8505092132617962823, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.3297996
+    - target: {fileID: 8505092132617962818, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8681896388889684680, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -78355,9 +78305,7 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5654871746193670730, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
-    - {fileID: 3054283011783260055, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa9bcb3c967a60c42b75a9159cc036b5, type: 3}
 --- !u!114 &8880126928230171785 stripped
 MonoBehaviour:
