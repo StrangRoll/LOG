@@ -1,3 +1,4 @@
+using ScriptableObjects.Levels;
 using Udar.SceneManager;
 using UI.Script;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace Script.Loader
         [SerializeField] private ButtonClickReader startButton;
         [SerializeField] private LevelChooser[] levelChoosers;
 
-        private SceneField _sceneToLoad;
+        private LevelInfo _level;
         
         private void OnEnable()
         {
@@ -33,14 +34,14 @@ namespace Script.Loader
             startButton.ButtonClicked -= OnStartButtonClicked;
         }
 
-        private void OnSceneSelected(SceneField sceneToLoad)
+        private void OnSceneSelected(LevelInfo levelInfo)
         {
-            _sceneToLoad = sceneToLoad;
+            _level = levelInfo;
         }
 
         private void OnStartButtonClicked()
         {
-            SceneManager.LoadScene(_sceneToLoad.Name);
+            _level.LoadLevel();
         }
     }
 }

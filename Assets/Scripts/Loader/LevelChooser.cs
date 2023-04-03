@@ -1,3 +1,4 @@
+using ScriptableObjects.Levels;
 using Udar.SceneManager;
 using UI.Script;
 using UnityEngine;
@@ -8,9 +9,9 @@ namespace Script.Loader
     public class LevelChooser : MonoBehaviour
     {
         [SerializeField] private ButtonClickReader selectButton;
-        [SerializeField] private SceneField _sceneToLoad;
+        [SerializeField] private LevelInfo levelInfo;
         
-        public event UnityAction<SceneField> SceneSelected;
+        public event UnityAction<LevelInfo> SceneSelected;
 
         private void OnEnable()
         {
@@ -24,7 +25,7 @@ namespace Script.Loader
 
         private void OnButtonClicked()
         {
-            SceneSelected?.Invoke(_sceneToLoad);
+            SceneSelected?.Invoke(levelInfo);
         }
     }
 }
