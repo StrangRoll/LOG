@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923da2ab856a4d20aebf7ce5c35a272c, type: 3}
   m_Name: DesertLevel
   m_EditorClassIdentifier: 
-  name: "\u041F\u0443\u0441\u0442\u044B\u043D\u044F"
-  feature: "\u0423\u0431\u0438\u0432\u0430\u044E\u0442 \u043A\u0430\u043A\u0442\u0443\u0441\u044B"
+  name: Deserted Village
+  feature: Beware of cacti!
   _scene:
     _sceneOB: {fileID: 102900000, guid: 10ee4fe5323704f47b1ecc8dcba5d908, type: 3}
     _name: Level_2
     _path: Assets/Scenes/Level_2.unity
     _buildIndex: 2
-  levelPreview: {fileID: 21300000, guid: 50ec68b9d9957a04a82159b71293c46e, type: 3}
+  levelPreview: {fileID: 21300000, guid: 6b772cb9237cc844cb75b784caf0e103, type: 3}

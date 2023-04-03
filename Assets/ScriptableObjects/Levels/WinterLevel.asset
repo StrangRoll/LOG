@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923da2ab856a4d20aebf7ce5c35a272c, type: 3}
   m_Name: WinterLevel
   m_EditorClassIdentifier: 
-  name: "\u0417\u0438\u043C\u0430"
-  feature: "\u041D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0438
-    \u0431\u043E\u044F\u0442\u0441\u044F \u0441\u043D\u0435\u0433\u0430"
+  name: 'Winter Tundra '
+  feature: Some opponents are afraid of snow
   _scene:
     _sceneOB: {fileID: 102900000, guid: 35a75c5110cfc8d4bb223c9e23beda5a, type: 3}
     _name: Level_4
     _path: Assets/Scenes/Level_4.unity
     _buildIndex: 4
-  levelPreview: {fileID: 21300000, guid: 555143ffc4e452a409e89350af8d31fd, type: 3}
+  levelPreview: {fileID: 21300000, guid: 7193325d5b6426549bbd1b0657826021, type: 3}

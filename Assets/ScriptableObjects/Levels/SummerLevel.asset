@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923da2ab856a4d20aebf7ce5c35a272c, type: 3}
   m_Name: SummerLevel
   m_EditorClassIdentifier: 
-  name: "\u0416\u0430\u0440\u0430, \u0418\u044E\u043B\u044C"
-  feature: "\u0414\u0435\u0440\u0435\u0432\u044C\u044F \u0438 \u043A\u0443\u0441\u0442\u044B
-    \u043F\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u0438\u0432\u0430\u044E\u0442\u0441\u044F"
+  name: Summer Forest
+  feature: Trees and bushes no longer stop bullets
   _scene:
     _sceneOB: {fileID: 102900000, guid: 42cc47273d8607a40a7e692fd668a804, type: 3}
     _name: Level_3
     _path: Assets/Scenes/Level_3.unity
     _buildIndex: 3
+  levelPreview: {fileID: 21300000, guid: 09720f037321140428f9c67f99f0daac, type: 3}
