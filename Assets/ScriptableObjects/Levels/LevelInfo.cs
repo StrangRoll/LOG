@@ -10,9 +10,11 @@ namespace ScriptableObjects.Levels
         [SerializeField] private string name;
         [SerializeField] private string feature;
         [SerializeField] private SceneField _scene;
+        [SerializeField] private Sprite levelPreview;     
         
         public string Name => name;
         public string Feature => feature;
+        public Sprite LevelPreview => levelPreview;
 
 
         public void LoadLevel()
