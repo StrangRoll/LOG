@@ -1,48 +1,46 @@
+using Udar.SceneManager;
 using UI.Script;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.Loader
 {
     public class LevelLoader : MonoBehaviour
     {
         [SerializeField] private ButtonClickReader startButton;
+        [SerializeField] private LevelChooser[] levelChoosers;
 
-        private const int LevelsCount = 4;
-
+        private SceneField _sceneToLoad;
+        
         private void OnEnable()
         {
+            foreach (var levelChooser in levelChoosers)
+            {
+                levelChooser.SceneSelected += OnSceneSelected;
+            }
+            
             startButton.ButtonClicked += OnStartButtonClicked;
         }
 
         private void OnDisable()
         {
+            foreach (var levelChooser in levelChoosers)
+            {
+                levelChooser.SceneSelected -= OnSceneSelected;
+            }
+
             startButton.ButtonClicked -= OnStartButtonClicked;
+        }
+
+        private void OnSceneSelected(SceneField sceneToLoad)
+        {
+            _sceneToLoad = sceneToLoad;
         }
 
         private void OnStartButtonClicked()
         {
-            var levelIndex = Random.Range(1, LevelsCount + 1);
-            
-            switch (levelIndex)
-            {
-                case (1):
-                    SceneManager.LoadScene(ScenesID.Level1);
-                    break;
-                case (2):
-                    SceneManager.LoadScene(ScenesID.Level2);
-                    break;
-                case (3):
-                    SceneManager.LoadScene(ScenesID.Level3);
-                    break;
-                case (4):
-                    SceneManager.LoadScene(ScenesID.Level4);
-                    break;
-                default:
-                    Debug.LogError("Invalid level index: " + levelIndex);
-                    break;
-            }
+            SceneManager.LoadScene(_sceneToLoad.Name);
         }
     }
 }
