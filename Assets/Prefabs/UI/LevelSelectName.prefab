@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: -3993690334170023128}
   - component: {fileID: 8862381461705522780}
   - component: {fileID: 5429128463193420818}
+  - component: {fileID: -6588587091173156180}
   m_Layer: 5
   m_Name: LevelSelectName
   m_TagString: Untagged
@@ -228,11 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectButton: {fileID: 5429128463193420818}
-  _sceneToLoad:
-    _sceneOB: {fileID: 0}
-    _name: 
-    _path: 
-    _buildIndex: 0
+  levelInfo: {fileID: 0}
 --- !u!114 &8862381461705522780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,3 +287,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 8862381461705522780}
+--- !u!114 &-6588587091173156180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576831931742243219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f79dc741bf3f45b5a9e5a512929b6c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSprite: {fileID: 21300000, guid: ccb9cb3d26ff0491da27678834d72789, type: 3}
+  inactiveSprite: {fileID: 21300000, guid: f112bf86ca05c44cc9611554ff2857b5, type: 3}
+  image: {fileID: 8576831931742243217}
+  othersLevelChoosers: []
+  thisLevelChooser: {fileID: -3993690334170023128}

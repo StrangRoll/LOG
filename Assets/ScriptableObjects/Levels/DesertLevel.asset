@@ -19,4 +19,4 @@ MonoBehaviour:
     _name: Level_2
     _path: Assets/Scenes/Level_2.unity
     _buildIndex: 2
-  levelPreview: {fileID: 21300000, guid: 555143ffc4e452a409e89350af8d31fd, type: 3}
+  levelPreview: {fileID: 21300000, guid: 50ec68b9d9957a04a82159b71293c46e, type: 3}
