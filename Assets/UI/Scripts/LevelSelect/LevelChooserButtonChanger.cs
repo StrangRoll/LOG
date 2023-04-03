@@ -1,16 +1,17 @@
-using System;
 using Script.Loader;
 using ScriptableObjects.Levels;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI.Script.LevelSelect
 {
-    public class LevelChooserSpriteChanger : MonoBehaviour
+    public class LevelChooserButtonChanger : MonoBehaviour
     {
         [SerializeField] private Sprite activeSprite;
         [SerializeField] private Sprite inactiveSprite;
         [SerializeField] private Image image;
+        [SerializeField] private TMP_Text buttonName;
         [SerializeField] private LevelChooser[] othersLevelChoosers;
         [SerializeField] private LevelChooser thisLevelChooser;
 
@@ -22,6 +23,7 @@ namespace UI.Script.LevelSelect
             }
 
             thisLevelChooser.SceneSelected += OnThisLevelSelected;
+            buttonName.text = thisLevelChooser.GetLevelName();
         }
 
         private void OnDisable()

@@ -302,5 +302,6 @@ MonoBehaviour:
   activeSprite: {fileID: 21300000, guid: ccb9cb3d26ff0491da27678834d72789, type: 3}
   inactiveSprite: {fileID: 21300000, guid: f112bf86ca05c44cc9611554ff2857b5, type: 3}
   image: {fileID: 8576831931742243217}
+  buttonName: {fileID: 8576831931264847656}
   othersLevelChoosers: []
   thisLevelChooser: {fileID: -3993690334170023128}

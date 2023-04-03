@@ -23,9 +23,15 @@ namespace Script.Loader
             selectButton.ButtonClicked -= OnButtonClicked;
         }
 
+        public string GetLevelName()
+        {
+            return levelInfo.Name;
+        } 
+
         private void OnButtonClicked()
         {
             SceneSelected?.Invoke(levelInfo);
         }
+        
     }
 }
