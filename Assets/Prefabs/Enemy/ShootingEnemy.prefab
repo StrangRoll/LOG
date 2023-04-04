@@ -45,9 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6735442314930631814, guid: 212dbc52d0f88f84aaab7dde1a1609aa, type: 3}
+  bulletDespawnObjects: 020000000300000000000000
   bulletSpawnPosition: {fileID: 4346274832499954075}
   reloadTime: 1
-  bulletDespawnObjects: 020000000300000000000000
+  activeSprite: {fileID: 0}
+  inactiveSprite: {fileID: 0}
 --- !u!1 &4346274833297697719
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,6 +67,7 @@ GameObject:
   - component: {fileID: 4346274833297697717}
   - component: {fileID: 4346274833297697716}
   - component: {fileID: -7885006562957570002}
+  - component: {fileID: 3679960815529472622}
   m_Layer: 0
   m_Name: ShootingEnemy
   m_TagString: Untagged
@@ -215,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd72209fd82e47269ea0e0db47e278ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedChanger: {fileID: 3679960815529472622}
   weapon: {fileID: 4346274832499954074}
   attackDistance: 8
 --- !u!114 &-7885006562957570002
@@ -234,3 +238,19 @@ MonoBehaviour:
   enemy: {fileID: 4346274833297697716}
   enemyCollider: {fileID: 4346274833297697712}
   renderer: {fileID: 4346274833297697713}
+--- !u!114 &3679960815529472622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346274833297697719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c81764883cf467685f99c399d3a13ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 1.5
+  deltaSpeed: 0.5
+  standartSpeed: 3.5
+  _agent: {fileID: 4346274833297697714}

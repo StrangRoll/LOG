@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4490224754149775230}
   - component: {fileID: 2828040941195040405}
   - component: {fileID: 1673176001505637097}
+  - component: {fileID: -8002574659248701615}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -165,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 045b3559a4cf4fb1a7e74f66ba4c626f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedChanger: {fileID: -8002574659248701615}
   spawnDelay: 5
 --- !u!114 &1673176001505637097
 MonoBehaviour:
@@ -183,3 +185,19 @@ MonoBehaviour:
   enemy: {fileID: 2828040941195040405}
   enemyCollider: {fileID: 4190171832065467557}
   renderer: {fileID: 8782658764759330665}
+--- !u!114 &-8002574659248701615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5577350996806371355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c81764883cf467685f99c399d3a13ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 1
+  deltaSpeed: 0.5
+  standartSpeed: 3
+  _agent: {fileID: 7452839127723799799}

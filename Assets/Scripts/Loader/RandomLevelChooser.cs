@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,13 @@ namespace Script.Loader
         {
             var randomIndex = Random.Range(0, levelSelectedButtons.Length);
             var randomButton = levelSelectedButtons[randomIndex];
-            randomButton.onClick.Invoke();
+            StartCoroutine(WaitNextFrameAndInvokeButtonClick(randomButton));
+        }
+
+        private IEnumerator WaitNextFrameAndInvokeButtonClick(Button button)
+        {
+            yield return null;
+            button.onClick.Invoke();
         }
     }
 }

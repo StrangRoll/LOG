@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using NTC.Global.Pool;
 using Script.GameEntitie;
 using Script.GameEntitie.EnemyTypes;
+using Script.Wave;
 using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
@@ -12,6 +13,7 @@ namespace Script.Spawn
     public class EnemySpawner : MonoBehaviour
     {
         [Inject] private DiContainer _diContainer;
+        [Inject] private WavesController _wavesController;
 
         [SerializeField] private Enemy[] enemiePrefabs;
         [SerializeField] private SpawningEnemy spawningEnemiePrefab;
@@ -29,6 +31,7 @@ namespace Script.Spawn
             _diContainer.InjectGameObject(newEnemy.gameObject);
             _aliveEnemies++;
             newEnemy.EnemyDie += OnEnemyDie;
+            newEnemy.Init(_wavesController.CurrentWave);
             _aliveEnemiesList.Add(newEnemy);
         }
 

@@ -1,3 +1,4 @@
+using Mover.EntityMovier;
 using NTC.Global.Pool;
 using Script.Health;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace Script.GameEntitie
 {
     public abstract class Enemy : MonoBehaviour, IDamagable
     {
+        [SerializeField] private EnemySpeedChanger _speedChanger;
+        
         private const int Damage = 1;
 
         public event UnityAction<Enemy> EnemyDie;
@@ -25,6 +28,11 @@ namespace Script.GameEntitie
             component.TakeDamage(Damage);
         }
 
+        public void Init(int waveNumber)
+        {
+            _speedChanger.SetSpeed(waveNumber);
+        }
+        
         public void Kill()
         {
             TakeDamage(1);

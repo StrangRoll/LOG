@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8219978578607803157}
   - component: {fileID: -811039829694504199}
   - component: {fileID: -547742525166028584}
+  - component: {fileID: -852731037684844126}
   m_Layer: 0
   m_Name: LittleFastEnemy
   m_TagString: Untagged
@@ -166,6 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7e899b78274e459d9c10531db57af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speedChanger: {fileID: -852731037684844126}
 --- !u!114 &-547742525166028584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +185,19 @@ MonoBehaviour:
   enemy: {fileID: -811039829694504199}
   enemyCollider: {fileID: 8219978578607803157}
   renderer: {fileID: 6156062631903901172}
+--- !u!114 &-852731037684844126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6156062631903901170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c81764883cf467685f99c399d3a13ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 2
+  deltaSpeed: 0.5
+  standartSpeed: 4
+  _agent: {fileID: 3981825128620953755}
