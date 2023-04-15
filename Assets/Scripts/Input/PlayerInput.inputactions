@@ -40,6 +40,24 @@
                     "processors": "InvertVector2(invertX=false,invertY=false)",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "FirstPower",
+                    "type": "Button",
+                    "id": "0fdde449-0b3b-4b85-9c0f-d524d401edd1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SecondPower",
+                    "type": "Button",
+                    "id": "f84e8849-1fea-4d5b-96a7-5d16d8a8d298",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -205,6 +223,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "MouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1bfa52fa-0bae-4892-913c-b58d27fc4528",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirstPower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a6843a4-dd18-4ab8-861a-c1a51fadf6bb",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SecondPower",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

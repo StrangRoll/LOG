@@ -62,6 +62,24 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": ""InvertVector2(invertX=false,invertY=false)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""FirstPower"",
+                    ""type"": ""Button"",
+                    ""id"": ""0fdde449-0b3b-4b85-9c0f-d524d401edd1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SecondPower"",
+                    ""type"": ""Button"",
+                    ""id"": ""f84e8849-1fea-4d5b-96a7-5d16d8a8d298"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -229,6 +247,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""MouseLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1bfa52fa-0bae-4892-913c-b58d27fc4528"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirstPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a6843a4-dd18-4ab8-861a-c1a51fadf6bb"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SecondPower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -325,6 +365,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_MouseLook = m_Player.FindAction("MouseLook", throwIfNotFound: true);
+        m_Player_FirstPower = m_Player.FindAction("FirstPower", throwIfNotFound: true);
+        m_Player_SecondPower = m_Player.FindAction("SecondPower", throwIfNotFound: true);
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
@@ -391,6 +433,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_MouseLook;
+    private readonly InputAction m_Player_FirstPower;
+    private readonly InputAction m_Player_SecondPower;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -399,6 +443,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @MouseLook => m_Wrapper.m_Player_MouseLook;
+        public InputAction @FirstPower => m_Wrapper.m_Player_FirstPower;
+        public InputAction @SecondPower => m_Wrapper.m_Player_SecondPower;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -420,6 +466,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @MouseLook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLook;
                 @MouseLook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLook;
                 @MouseLook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLook;
+                @FirstPower.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFirstPower;
+                @FirstPower.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFirstPower;
+                @FirstPower.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFirstPower;
+                @SecondPower.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondPower;
+                @SecondPower.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondPower;
+                @SecondPower.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSecondPower;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -436,6 +488,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @MouseLook.started += instance.OnMouseLook;
                 @MouseLook.performed += instance.OnMouseLook;
                 @MouseLook.canceled += instance.OnMouseLook;
+                @FirstPower.started += instance.OnFirstPower;
+                @FirstPower.performed += instance.OnFirstPower;
+                @FirstPower.canceled += instance.OnFirstPower;
+                @SecondPower.started += instance.OnSecondPower;
+                @SecondPower.performed += instance.OnSecondPower;
+                @SecondPower.canceled += instance.OnSecondPower;
             }
         }
     }
@@ -506,6 +564,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnMouseLook(InputAction.CallbackContext context);
+        void OnFirstPower(InputAction.CallbackContext context);
+        void OnSecondPower(InputAction.CallbackContext context);
     }
     public interface IPauseActions
     {

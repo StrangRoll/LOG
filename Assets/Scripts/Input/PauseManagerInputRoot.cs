@@ -11,8 +11,8 @@ namespace Script.Input
         [Inject] private PlayerInput _playerInput;
         [Inject] private PauseManager _pauseManager;
 
-        [SerializeField] private ButtonClickReader pauseButton;
         [SerializeField] private ButtonClickReader continueButton;
+        [SerializeField] private ButtonClickReader pauseButton;
 
         private void OnEnable()
         {
