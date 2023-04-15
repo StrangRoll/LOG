@@ -11,9 +11,8 @@ namespace ScriptableObjects.Powers
         [SerializeField] private string powerName;
         [SerializeField] private float powerCooldown;
         [SerializeField] private PowerAbilitie powerAbilitie;
-        
 
-        private float _lastActivatedTime = 0;
+        private float _lastActivatedTime;
 
         public bool CanActivate => Time.time > _lastActivatedTime + powerCooldown;
 
@@ -25,6 +24,11 @@ namespace ScriptableObjects.Powers
             _lastActivatedTime = Time.time;
             powerAbilitie.ActivateAbilite();
             Debug.Log(powerName + " activated");
+        }
+
+        public void Reset()
+        {
+            _lastActivatedTime = -powerCooldown;
         }
     }
 }

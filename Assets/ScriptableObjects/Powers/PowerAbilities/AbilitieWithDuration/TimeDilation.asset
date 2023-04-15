@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3f6a2e8966f4fa1aaaeff7f551dbaef, type: 3}
-  m_Name: 1
+  m_Script: {fileID: 11500000, guid: fffce33cd31449dca9ce410ccb0d7166, type: 3}
+  m_Name: TimeDilation
   m_EditorClassIdentifier: 
-  powerName: First
-  powerCooldown: 1
-  powerAbilitie: {fileID: 11400000, guid: d7868d804a393f14b948eb1391e605fd, type: 2}
+  inGameTimer: {fileID: 8200107687318099541, guid: e26a785b4f4420a41b8e6269445720ce, type: 3}
+  duration: 1

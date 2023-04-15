@@ -1,8 +1,6 @@
-using System;
 using Script.Input;
 using ScriptableObjects.Powers;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Script.Powers
 {
@@ -10,7 +8,14 @@ namespace Script.Powers
     {
         [SerializeField] private Power firstPower;
         [SerializeField] private Power secondPower;
+
         [SerializeField] private PowerInputRoot powerInputRoot;
+
+        private void Awake()
+        {
+            firstPower.Reset();
+            secondPower.Reset();
+        }
 
         private void OnEnable()
         {

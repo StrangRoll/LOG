@@ -1,21 +1,37 @@
 using System.Collections;
+using NTC.Global.Pool;
 using UnityEngine;
 using UnityEngine.Events;
+using Zenject;
+using NotImplementedException = System.NotImplementedException;
 
 namespace Script.System
 {
-    public class InGameTimer : MonoBehaviour
+    public class InGameTimer : MonoBehaviour, IPoolItem
     {
         public event UnityAction TimeLeft;
 
-        public void StartTimer(float time)
+        private float _time;
+
+        public void SetTime(float time)
         {
-            StartCoroutine(WaitTime(time));
+            _time = time;
+        }
+        
+        public void OnSpawn()
+        {
+            StartCoroutine(WaitTime());
         }
 
-        private IEnumerator WaitTime(float time)
+        public void OnDespawn()
         {
-            yield return new WaitForSeconds(time);
+            return;
+        }
+
+        private IEnumerator WaitTime()
+        {
+            yield return new WaitForSeconds(_time);
+            Debug.Log(_time);
             TimeLeft?.Invoke();
             gameObject.SetActive(false);
         }

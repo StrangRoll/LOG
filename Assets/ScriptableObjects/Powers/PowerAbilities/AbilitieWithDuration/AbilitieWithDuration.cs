@@ -12,7 +12,7 @@ namespace ScriptableObjects.Powers.PowerAbilities.AbilitieWithDuration
         public override void ActivateAbilite()
         {
             NightPool.Spawn(inGameTimer);
-            inGameTimer.StartTimer(duration);
+            inGameTimer.SetTime(duration);
             Activate();
             inGameTimer.TimeLeft += OnTimeLeft;
         }
